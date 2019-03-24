@@ -1,0 +1,13 @@
+# IDE
+.idea
+cmake-build-debug
+
+# CMake
+CMakeFiles
+*.cmake
+CMakeCache.txt
+Makefile
+
+# Test
+tests/test
+tests/coverage
