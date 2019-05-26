@@ -24,6 +24,6 @@ SOFTWARE. */
 
 extern const int CODE_NUM;
 extern const int CODE_VALUE[];
-extern const unicode::NormalCategory NORMAL_CATEGORY[];
+extern const unicode::GeneralCategory GENERAL_CATEGORY[];
 
 #endif  // INCLUDE_UNICODE_DATA_H_

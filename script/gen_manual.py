@@ -19,17 +19,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-with open('include/unicode_data.h', 'w') as writer:
-    with open('copyright.txt', 'r') as reader:
-        writer.write(reader.read())
-    writer.write('#ifndef INCLUDE_UNICODE_DATA_H_\n')
-    writer.write('#define INCLUDE_UNICODE_DATA_H_\n\n')
-    writer.write('#include "unicode_char.h"\n\n')
-
-with open('include/unicode_char.h', 'w') as writer:
-    with open('copyright.txt', 'r') as reader:
-        writer.write(reader.read())
-    writer.write('#ifndef INCLUDE_UNICODE_CHAR_H_\n')
-    writer.write('#define INCLUDE_UNICODE_CHAR_H_\n\n')
-    writer.write('#include <iostream>\n\n')
-    writer.write('namespace unicode {\n\n')
+with open('include/unicode_char.h', 'a') as writer:
+    with open('unicode_char.h', 'r') as reader:
+        writer.write(reader.read() + '\n')

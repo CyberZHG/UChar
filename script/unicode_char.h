@@ -1,0 +1,1 @@
+GeneralCategory getGeneralCategory(int code);

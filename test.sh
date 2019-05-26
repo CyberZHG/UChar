@@ -4,6 +4,6 @@ cd tests && \
     make all && \
     ./test && \
     mkdir -p coverage && \
-    lcov --directory . --capture --output-file ./coverage/coverage.info
-    lcov --remove ./coverage/coverage.info "/usr/*" "/Applications/*" "*v1*" "*/deps/*" -o ./coverage/filtered.info && \
+    lcov --directory . --capture --output-file ./coverage/coverage.info && \
+    lcov --remove ./coverage/coverage.info "/usr/*" "/Applications/*" "*v1*" "*/deps/*" "tests" -o ./coverage/filtered.info && \
     genhtml ./coverage/filtered.info --branch-coverage --output-directory ./coverage/report

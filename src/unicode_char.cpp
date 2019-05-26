@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-""" Copyright 2019 Zhao HG
+/* Copyright 2019 Zhao HG
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -17,19 +16,28 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
-with open('include/unicode_data.h', 'w') as writer:
-    with open('copyright.txt', 'r') as reader:
-        writer.write(reader.read())
-    writer.write('#ifndef INCLUDE_UNICODE_DATA_H_\n')
-    writer.write('#define INCLUDE_UNICODE_DATA_H_\n\n')
-    writer.write('#include "unicode_char.h"\n\n')
+SOFTWARE. */
+#include "unicode_char.h"
+#include "unicode_data.h"
 
-with open('include/unicode_char.h', 'w') as writer:
-    with open('copyright.txt', 'r') as reader:
-        writer.write(reader.read())
-    writer.write('#ifndef INCLUDE_UNICODE_CHAR_H_\n')
-    writer.write('#define INCLUDE_UNICODE_CHAR_H_\n\n')
-    writer.write('#include <iostream>\n\n')
-    writer.write('namespace unicode {\n\n')
+using unicode::GeneralCategory;
+
+int getIndex(int code) {
+    int l = 0, r = CODE_NUM - 1, index = 0;
+    while (l <= r) {
+        int mid = l + (r - l) / 2;
+        if (CODE_VALUE[mid] <= code) {
+            l = mid + 1;
+            if (mid > index) {
+                index = mid;
+            }
+        } else {
+            r = mid - 1;
+        }
+    }
+    return index;
+}
+
+GeneralCategory unicode::getGeneralCategory(int code) {
+    return GENERAL_CATEGORY[getIndex(code)];
+}

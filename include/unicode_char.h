@@ -20,13 +20,19 @@ SOFTWARE. */
 #ifndef INCLUDE_UNICODE_CHAR_H_
 #define INCLUDE_UNICODE_CHAR_H_
 
+#include <iostream>
+
 namespace unicode {
 
-enum class NormalCategory {
+enum class GeneralCategory {
     Cc, Cf, Co, Cs, Ll, Lm, Lo, Lt, Lu, Mc,
     Me, Mn, Nd, Nl, No, Pc, Pd, Pe, Pf, Pi,
     Po, Ps, Sc, Sk, Sm, So, Zl, Zp, Zs
 };
+
+std::ostream& operator<<(std::ostream&, GeneralCategory);
+
+GeneralCategory getGeneralCategory(int code);
 
 }  // namespace unicode
 
