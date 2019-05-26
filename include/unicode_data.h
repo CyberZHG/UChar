@@ -23,6 +23,7 @@ SOFTWARE. */
 #include "unicode_char.h"
 
 extern const int CODE_NUM;
+extern const int CONTINUOUS_NUM;
 extern const int CODE_VALUE[];
 extern const unicode::GeneralCategory GENERAL_CATEGORY[];
 

@@ -23,6 +23,9 @@ SOFTWARE. */
 using unicode::GeneralCategory;
 
 int getIndex(int code) {
+    if (code <= CONTINUOUS_NUM) {
+        return code;
+    }
     int l = 0, r = CODE_NUM - 1, index = 0;
     while (l <= r) {
         int mid = l + (r - l) / 2;

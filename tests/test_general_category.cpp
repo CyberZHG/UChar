@@ -32,4 +32,9 @@ __TEST_U(GeneralCategoryTest, test_last) {
     __ASSERT_EQ(unicode::GeneralCategory::Co, unicode::getGeneralCategory(0x10FFFD));
 }
 
+__TEST_U(GeneralCategoryTest, test_continuous) {
+__ASSERT_EQ(unicode::GeneralCategory::Lu, unicode::getGeneralCategory(0x370));
+__ASSERT_EQ(unicode::GeneralCategory::Ll, unicode::getGeneralCategory(0x378));
+}
+
 }  // namespace test
