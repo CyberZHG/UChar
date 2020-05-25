@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-""" Copyright 2019 Zhao HG
+""" Copyright 2020 Zhao HG
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
