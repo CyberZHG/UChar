@@ -17,3 +17,13 @@ jobs:
       run: python -m pycodestyle --max-line-length=120 script/*.py
     - name: c++ lint
       run: python -m cpplint --linelength=120 --filter=-build/include_subdir include/*.h src/*.cpp tests/*.cpp
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: sync
+      run: git submodule update --init --recursive
+    - name: install
+      run: sudo apt install -y cmake lcov
+    - name: test
+      run: ./test.sh
