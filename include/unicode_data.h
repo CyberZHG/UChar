@@ -26,5 +26,14 @@ extern const int CODE_NUM;
 extern const int CONTINUOUS_NUM;
 extern const int CODE_VALUE[];
 extern const unicode::GeneralCategory GENERAL_CATEGORY[];
+const int UPPER_NUM = 1410;
+extern const int UPPER_INDEX[];
+extern const int UPPER_CASE[];
+const int LOWER_NUM = 1393;
+extern const int LOWER_INDEX[];
+extern const int LOWER_CASE[];
+const int TITLE_NUM = 1414;
+extern const int TITLE_INDEX[];
+extern const int TITLE_CASE[];
 
 #endif  // INCLUDE_UNICODE_DATA_H_

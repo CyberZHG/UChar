@@ -22,14 +22,21 @@ SOFTWARE. */
 
 using unicode::GeneralCategory;
 
-int getIndex(int code) {
-    if (code <= CONTINUOUS_NUM) {
-        return code;
+
+int findLowerBound(const int array[], int total, int target) {
+    if (target < array[0]) {
+        return -1;
     }
-    int l = 0, r = CODE_NUM - 1, index = 0;
+    if (target > array[total - 1]) {
+        return total - 1;
+    }
+    int l = 0, r = total - 1, index = 0;
     while (l <= r) {
         int mid = l + (r - l) / 2;
-        if (CODE_VALUE[mid] <= code) {
+        if (array[mid] == target) {
+            return mid;
+        }
+        if (array[mid] < target) {
             l = mid + 1;
             if (mid > index) {
                 index = mid;
@@ -41,6 +48,33 @@ int getIndex(int code) {
     return index;
 }
 
+int getCodeIndex(int code) {
+    if (code <= CONTINUOUS_NUM) {
+        return code;
+    }
+    return findLowerBound(CODE_VALUE, CODE_NUM, code);
+}
+
 GeneralCategory unicode::getGeneralCategory(int code) {
-    return GENERAL_CATEGORY[getIndex(code)];
+    return GENERAL_CATEGORY[getCodeIndex(code)];
+}
+
+int getCase(const int indices[], const int cases[], int total, int code) {
+    int index = findLowerBound(indices, total, code);
+    if (index == -1 || indices[index] != code) {
+        return code;
+    }
+    return cases[index];
+}
+
+int unicode::getUpperCase(int code) {
+    return getCase(UPPER_INDEX, UPPER_CASE, UPPER_NUM, code);
+}
+
+int unicode::getLowerCase(int code) {
+    return getCase(LOWER_INDEX, LOWER_CASE, LOWER_NUM, code);
+}
+
+int unicode::getTitleCase(int code) {
+    return getCase(TITLE_INDEX, TITLE_CASE, TITLE_NUM, code);
 }
