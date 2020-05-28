@@ -35,5 +35,8 @@ extern const int LOWER_CASE[];
 const int TITLE_NUM = 1414;
 extern const int TITLE_INDEX[];
 extern const int TITLE_CASE[];
+const int CANONICAL_COMBINING_NUM = 872;
+extern const int CANONICAL_COMBINING_INDEX[];
+extern const int CANONICAL_COMBINING_CLASS[];
 
 #endif  // INCLUDE_UNICODE_DATA_H_

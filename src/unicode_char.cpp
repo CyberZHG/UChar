@@ -78,3 +78,12 @@ int unicode::getLowerCase(int code) {
 int unicode::getTitleCase(int code) {
     return getCase(TITLE_INDEX, TITLE_CASE, TITLE_NUM, code);
 }
+
+
+int unicode::getCanonicalCombiningClass(int code) {
+    int index = findLowerBound(CANONICAL_COMBINING_INDEX, CANONICAL_COMBINING_NUM, code);
+    if (index == -1 || CANONICAL_COMBINING_INDEX[index] != code) {
+        return 0;
+    }
+    return CANONICAL_COMBINING_CLASS[index];
+}
