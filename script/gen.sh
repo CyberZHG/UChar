@@ -5,6 +5,7 @@
 ./gen_general_category.py
 ./gen_canonical_combining_class.py
 ./gen_bidirectional_category.py
+./gen_decomposition_mapping.py
 ./gen_cases.py
 ./gen_manual.py
 ./gen_header_close.py

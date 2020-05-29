@@ -32,4 +32,5 @@ with open('include/unicode_char.h', 'w') as writer:
     writer.write('#ifndef INCLUDE_UNICODE_CHAR_H_\n')
     writer.write('#define INCLUDE_UNICODE_CHAR_H_\n\n')
     writer.write('#include <iostream>\n\n')
+    writer.write('#include <vector>\n\n')
     writer.write('namespace unicode {\n\n')

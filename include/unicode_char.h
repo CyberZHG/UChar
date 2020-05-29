@@ -22,6 +22,8 @@ SOFTWARE. */
 
 #include <iostream>
 
+#include <vector>
+
 namespace unicode {
 
 enum class GeneralCategory {
@@ -40,9 +42,19 @@ enum class BidirectionalCategory {
 
 std::ostream& operator<<(std::ostream&, BidirectionalCategory);
 
+enum class DecompositionMappingTag {
+    NO_MAPPING, CANONICAL, CIRCLE, COMPAT, FINAL, FONT, FRACTION, INITIAL, ISOLATED, MEDIAL,
+    NARROW, NOBREAK, SMALL, SQUARE, SUB, SUPER, VERTICAL, WIDE
+};
+
+std::ostream& operator<<(std::ostream&, DecompositionMappingTag);
+
 GeneralCategory getGeneralCategory(int code);
 int getCanonicalCombiningClass(int code);
 BidirectionalCategory getBidirectionalCategory(int code);
+DecompositionMappingTag getDecompositionMappingTag(int code);
+std::vector<int> getDecompositionMapping(int code);
+void getDecompositionMapping(int code, int buffer[]);
 int getUpperCase(int code);
 int getLowerCase(int code);
 int getTitleCase(int code);

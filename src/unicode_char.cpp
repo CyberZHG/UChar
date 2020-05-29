@@ -69,6 +69,42 @@ unicode::BidirectionalCategory unicode::getBidirectionalCategory(int code) {
     return BIDIRECTIONAL_CATEGORY[getCodeIndex(code)];
 }
 
+unicode::DecompositionMappingTag unicode::getDecompositionMappingTag(int code) {
+    int index = findLowerBound(DECOMPOSITION_MAPPING_INDEX, DECOMPOSITION_MAPPING_NUM, code);
+    if (index == -1 || DECOMPOSITION_MAPPING_INDEX[index] != code) {
+        return unicode::DecompositionMappingTag::NO_MAPPING;
+    }
+    return DECOMPOSITION_MAPPING_TAG[index];
+}
+
+std::vector<int> unicode::getDecompositionMapping(int code) {
+    int index = findLowerBound(DECOMPOSITION_MAPPING_INDEX, DECOMPOSITION_MAPPING_NUM, code);
+    if (index == -1 || DECOMPOSITION_MAPPING_INDEX[index] != code) {
+        return {code};
+    }
+    int start = DECOMPOSITION_MAPPING_OFFSET[index];
+    int stop = DECOMPOSITION_MAPPING_OFFSET[index + 1];
+    std::vector<int> decomposition(stop - start);
+    for (int i = start; i < stop; ++i) {
+        decomposition[i - start] = DECOMPOSITION_MAPPING_CHARS[i];
+    }
+    return decomposition;
+}
+
+void unicode::getDecompositionMapping(int code, int buffer[]) {
+    int index = findLowerBound(DECOMPOSITION_MAPPING_INDEX, DECOMPOSITION_MAPPING_NUM, code);
+    if (index == -1 || DECOMPOSITION_MAPPING_INDEX[index] != code) {
+        buffer[0] = code;
+        buffer[1] = 0;
+    }
+    int start = DECOMPOSITION_MAPPING_OFFSET[index];
+    int stop = DECOMPOSITION_MAPPING_OFFSET[index + 1];
+    for (int i = start; i < stop; ++i) {
+        buffer[i - start] = DECOMPOSITION_MAPPING_CHARS[i];
+    }
+    buffer[stop - start] = 0;
+}
+
 int getCase(const int indices[], const int cases[], int total, int code) {
     int index = findLowerBound(indices, total, code);
     if (index == -1 || indices[index] != code) {

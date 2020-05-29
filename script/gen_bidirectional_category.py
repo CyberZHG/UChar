@@ -48,13 +48,13 @@ with open('src/bidirectional_category.cpp', 'w') as writer:
 
     writer.write('using unicode::BidirectionalCategory;\n\n')
     for category in unique_categories:
-        writer.write('BidirectionalCategory {} = BidirectionalCategory::{};\n'.format(category, category))
+        writer.write('const BidirectionalCategory {} = BidirectionalCategory::{};\n'.format(category, category))
     writer.write("\n")
 
     writer.write('std::ostream& unicode::operator<<(std::ostream& os, BidirectionalCategory c) {\n')
     writer.write('    switch (c) {\n')
-    for category in sorted(list(set(categories))):
-        writer.write('    case BidirectionalCategory::{}: os << "{}"; break;\n'.format(category, category))
+    for category in unique_categories:
+        writer.write('    case {}: os << "{}"; break;\n'.format(category, category))
     writer.write('    }\n')
     writer.write('    return os;\n')
     writer.write('}\n\n')
