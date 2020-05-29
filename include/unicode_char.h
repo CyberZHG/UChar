@@ -32,11 +32,20 @@ enum class GeneralCategory {
 
 std::ostream& operator<<(std::ostream&, GeneralCategory);
 
+enum class BidirectionalCategory {
+    AL, AN, B, BN, CS, EN, ES, ET, FSI, L,
+    LRE, LRI, LRO, NSM, ON, PDF, PDI, R, RLE, RLI,
+    RLO, S, WS
+};
+
+std::ostream& operator<<(std::ostream&, BidirectionalCategory);
+
 GeneralCategory getGeneralCategory(int code);
+int getCanonicalCombiningClass(int code);
+BidirectionalCategory getBidirectionalCategory(int code);
 int getUpperCase(int code);
 int getLowerCase(int code);
 int getTitleCase(int code);
-int getCanonicalCombiningClass(int code);
 
 }  // namespace unicode
 

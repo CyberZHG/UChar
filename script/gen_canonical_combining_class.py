@@ -69,9 +69,9 @@ with open('tests/test_canonical_combining_class_gen.cpp', 'w') as writer:
     writer.write('#include "unicode_char.h"\n\n')
     writer.write('namespace test {\n\n')
 
-    writer.write('class GeneralCanonicalCombiningClassGenTest : public UnitTest {};\n\n')
+    writer.write('class CanonicalCombiningClassGenTest : public UnitTest {};\n\n')
 
-    writer.write('__TEST_U(GeneralCanonicalCombiningClassGenTest, test_classes) {\n')
+    writer.write('__TEST_U(CanonicalCombiningClassGenTest, test_classes) {\n')
     for canonical, code in classes.items():
         writer.write('    __ASSERT_EQ({}, unicode::getCanonicalCombiningClass({}));\n'.format(
             canonical, '0x' + code

@@ -26,6 +26,10 @@ extern const int CODE_NUM;
 extern const int CONTINUOUS_NUM;
 extern const int CODE_VALUE[];
 extern const unicode::GeneralCategory GENERAL_CATEGORY[];
+const int CANONICAL_COMBINING_NUM = 872;
+extern const int CANONICAL_COMBINING_INDEX[];
+extern const int CANONICAL_COMBINING_CLASS[];
+extern const unicode::BidirectionalCategory BIDIRECTIONAL_CATEGORY[];
 const int UPPER_NUM = 1410;
 extern const int UPPER_INDEX[];
 extern const int UPPER_CASE[];
@@ -35,8 +39,5 @@ extern const int LOWER_CASE[];
 const int TITLE_NUM = 1414;
 extern const int TITLE_INDEX[];
 extern const int TITLE_CASE[];
-const int CANONICAL_COMBINING_NUM = 872;
-extern const int CANONICAL_COMBINING_INDEX[];
-extern const int CANONICAL_COMBINING_CLASS[];
 
 #endif  // INCLUDE_UNICODE_DATA_H_

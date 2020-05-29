@@ -22,9 +22,9 @@ SOFTWARE. */
 
 namespace test {
 
-class GeneralCanonicalCombiningClassTest : public UnitTest {};
+class CanonicalCombiningClassGenTest : public UnitTest {};
 
-__TEST_U(GeneralCanonicalCombiningClassTest, test_classes) {
+__TEST_U(CanonicalCombiningClassGenTest, test_classes) {
     __ASSERT_EQ(0, unicode::getCanonicalCombiningClass(0x0041));
     __ASSERT_EQ(230, unicode::getCanonicalCombiningClass(0x1E949));
     __ASSERT_EQ(232, unicode::getCanonicalCombiningClass(0x302C));

@@ -20,8 +20,6 @@ SOFTWARE. */
 #include "unicode_char.h"
 #include "unicode_data.h"
 
-using unicode::GeneralCategory;
-
 
 int findLowerBound(const int array[], int total, int target) {
     if (target < array[0]) {
@@ -55,8 +53,20 @@ int getCodeIndex(int code) {
     return findLowerBound(CODE_VALUE, CODE_NUM, code);
 }
 
-GeneralCategory unicode::getGeneralCategory(int code) {
+unicode::GeneralCategory unicode::getGeneralCategory(int code) {
     return GENERAL_CATEGORY[getCodeIndex(code)];
+}
+
+int unicode::getCanonicalCombiningClass(int code) {
+    int index = findLowerBound(CANONICAL_COMBINING_INDEX, CANONICAL_COMBINING_NUM, code);
+    if (index == -1 || CANONICAL_COMBINING_INDEX[index] != code) {
+        return 0;
+    }
+    return CANONICAL_COMBINING_CLASS[index];
+}
+
+unicode::BidirectionalCategory unicode::getBidirectionalCategory(int code) {
+    return BIDIRECTIONAL_CATEGORY[getCodeIndex(code)];
 }
 
 int getCase(const int indices[], const int cases[], int total, int code) {
@@ -77,13 +87,4 @@ int unicode::getLowerCase(int code) {
 
 int unicode::getTitleCase(int code) {
     return getCase(TITLE_INDEX, TITLE_CASE, TITLE_NUM, code);
-}
-
-
-int unicode::getCanonicalCombiningClass(int code) {
-    int index = findLowerBound(CANONICAL_COMBINING_INDEX, CANONICAL_COMBINING_NUM, code);
-    if (index == -1 || CANONICAL_COMBINING_INDEX[index] != code) {
-        return 0;
-    }
-    return CANONICAL_COMBINING_CLASS[index];
 }
