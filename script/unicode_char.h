@@ -8,6 +8,7 @@ int getDecimalDigitValue(int code);
 int getDigitValue(int code);
 double getNumericValue(int code);
 std::pair<int64_t, int64_t> getNumericFraction(int code);
+bool isMirrored(int code);
 int getUpperCase(int code);
 int getLowerCase(int code);
 int getTitleCase(int code);

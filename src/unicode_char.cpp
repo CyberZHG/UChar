@@ -138,6 +138,14 @@ std::pair<int64_t, int64_t> unicode::getNumericFraction(int code) {
     return {NUMERICS_NUMERATOR[index], static_cast<int64_t>(NUMERICS_DENOMINATOR[index])};
 }
 
+bool unicode::isMirrored(int code) {
+    int index = findLowerBound(MIRRORED_INDEX, MIRRORED_NUM, code);
+    if (index == -1) {
+        return false;
+    }
+    return MIRRORED_VALUE[index];
+}
+
 int getCase(const int indices[], const int cases[], int total, int code) {
     int index = findLowerBound(indices, total, code);
     if (index == -1 || indices[index] != code) {
