@@ -17,6 +17,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
+#include <limits>
 #include "unicode_char.h"
 #include "unicode_data.h"
 
@@ -103,6 +104,38 @@ void unicode::getDecompositionMapping(int code, int buffer[]) {
         buffer[i - start] = DECOMPOSITION_MAPPING_CHARS[i];
     }
     buffer[stop - start] = 0;
+}
+
+int unicode::getDecimalDigitValue(int code) {
+    int index = findLowerBound(NUMERICS_INDEX, NUMERICS_NUM, code);
+    if (index == -1 || NUMERICS_INDEX[index] != code) {
+        return -1;
+    }
+    return NUMERICS_DECIMAL[index];
+}
+
+int unicode::getDigitValue(int code) {
+    int index = findLowerBound(NUMERICS_INDEX, NUMERICS_NUM, code);
+    if (index == -1 || NUMERICS_INDEX[index] != code) {
+        return -1;
+    }
+    return NUMERICS_DIGIT[index];
+}
+
+double unicode::getNumericValue(int code) {
+    int index = findLowerBound(NUMERICS_INDEX, NUMERICS_NUM, code);
+    if (index == -1 || NUMERICS_INDEX[index] != code || NUMERICS_DENOMINATOR[index] == 0) {
+        return std::numeric_limits<double>::quiet_NaN();
+    }
+    return 1.0 * NUMERICS_NUMERATOR[index] / NUMERICS_DENOMINATOR[index];
+}
+
+std::pair<int64_t, int64_t> unicode::getNumericFraction(int code) {
+    int index = findLowerBound(NUMERICS_INDEX, NUMERICS_NUM, code);
+    if (index == -1 || NUMERICS_INDEX[index] != code) {
+        return {-1, 0};
+    }
+    return {NUMERICS_NUMERATOR[index], static_cast<int64_t>(NUMERICS_DENOMINATOR[index])};
 }
 
 int getCase(const int indices[], const int cases[], int total, int code) {
