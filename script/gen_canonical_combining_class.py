@@ -20,10 +20,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 with open('UnicodeData.txt', 'r') as reader:
-    indices, canonicals, classes = [], [], {'0': '0041'}
+    last, indices, canonicals, classes = '', [], [], {}
     for line in reader:
         parts = line.strip().split(';')
-        if parts[3] != '0':
+        if parts[3] != last:
+            last = parts[3]
             indices.append(parts[0])
             canonicals.append(parts[3])
             classes[parts[3]] = parts[0]

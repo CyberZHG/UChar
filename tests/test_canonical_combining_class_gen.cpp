@@ -25,13 +25,13 @@ namespace test {
 class CanonicalCombiningClassGenTest : public UnitTest {};
 
 __TEST_U(CanonicalCombiningClassGenTest, test_classes) {
-    __ASSERT_EQ(0, unicode::getCanonicalCombiningClass(0x0041));
-    __ASSERT_EQ(230, unicode::getCanonicalCombiningClass(0x1E949));
+    __ASSERT_EQ(0, unicode::getCanonicalCombiningClass(0x1E94B));
+    __ASSERT_EQ(230, unicode::getCanonicalCombiningClass(0x1E944));
     __ASSERT_EQ(232, unicode::getCanonicalCombiningClass(0x302C));
-    __ASSERT_EQ(220, unicode::getCanonicalCombiningClass(0x1E8D6));
-    __ASSERT_EQ(216, unicode::getCanonicalCombiningClass(0x1D172));
+    __ASSERT_EQ(220, unicode::getCanonicalCombiningClass(0x1E8D0));
+    __ASSERT_EQ(216, unicode::getCanonicalCombiningClass(0x1D16E));
     __ASSERT_EQ(202, unicode::getCanonicalCombiningClass(0x1DD0));
-    __ASSERT_EQ(1, unicode::getCanonicalCombiningClass(0x1D169));
+    __ASSERT_EQ(1, unicode::getCanonicalCombiningClass(0x1D167));
     __ASSERT_EQ(240, unicode::getCanonicalCombiningClass(0x0345));
     __ASSERT_EQ(233, unicode::getCanonicalCombiningClass(0x1DFC));
     __ASSERT_EQ(234, unicode::getCanonicalCombiningClass(0x1DCD));
@@ -46,7 +46,7 @@ __TEST_U(CanonicalCombiningClassGenTest, test_classes) {
     __ASSERT_EQ(16, unicode::getCanonicalCombiningClass(0x05B6));
     __ASSERT_EQ(17, unicode::getCanonicalCombiningClass(0x05B7));
     __ASSERT_EQ(18, unicode::getCanonicalCombiningClass(0x05C7));
-    __ASSERT_EQ(19, unicode::getCanonicalCombiningClass(0x05BA));
+    __ASSERT_EQ(19, unicode::getCanonicalCombiningClass(0x05B9));
     __ASSERT_EQ(20, unicode::getCanonicalCombiningClass(0x05BB));
     __ASSERT_EQ(21, unicode::getCanonicalCombiningClass(0x05BC));
     __ASSERT_EQ(22, unicode::getCanonicalCombiningClass(0x05BD));
@@ -67,19 +67,19 @@ __TEST_U(CanonicalCombiningClassGenTest, test_classes) {
     __ASSERT_EQ(9, unicode::getCanonicalCombiningClass(0x11D97));
     __ASSERT_EQ(84, unicode::getCanonicalCombiningClass(0x0C55));
     __ASSERT_EQ(91, unicode::getCanonicalCombiningClass(0x0C56));
-    __ASSERT_EQ(103, unicode::getCanonicalCombiningClass(0x0E39));
-    __ASSERT_EQ(107, unicode::getCanonicalCombiningClass(0x0E4B));
-    __ASSERT_EQ(118, unicode::getCanonicalCombiningClass(0x0EB9));
-    __ASSERT_EQ(122, unicode::getCanonicalCombiningClass(0x0ECB));
+    __ASSERT_EQ(103, unicode::getCanonicalCombiningClass(0x0E38));
+    __ASSERT_EQ(107, unicode::getCanonicalCombiningClass(0x0E48));
+    __ASSERT_EQ(118, unicode::getCanonicalCombiningClass(0x0EB8));
+    __ASSERT_EQ(122, unicode::getCanonicalCombiningClass(0x0EC8));
     __ASSERT_EQ(129, unicode::getCanonicalCombiningClass(0x0F71));
     __ASSERT_EQ(130, unicode::getCanonicalCombiningClass(0x0F80));
     __ASSERT_EQ(132, unicode::getCanonicalCombiningClass(0x0F74));
     __ASSERT_EQ(214, unicode::getCanonicalCombiningClass(0x1DCE));
     __ASSERT_EQ(218, unicode::getCanonicalCombiningClass(0x302A));
-    __ASSERT_EQ(224, unicode::getCanonicalCombiningClass(0x302F));
-    __ASSERT_EQ(8, unicode::getCanonicalCombiningClass(0x309A));
+    __ASSERT_EQ(224, unicode::getCanonicalCombiningClass(0x302E));
+    __ASSERT_EQ(8, unicode::getCanonicalCombiningClass(0x3099));
     __ASSERT_EQ(26, unicode::getCanonicalCombiningClass(0xFB1E));
-    __ASSERT_EQ(6, unicode::getCanonicalCombiningClass(0x16FF1));
+    __ASSERT_EQ(6, unicode::getCanonicalCombiningClass(0x16FF0));
     __ASSERT_EQ(226, unicode::getCanonicalCombiningClass(0x1D16D));
 }
 

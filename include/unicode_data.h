@@ -26,7 +26,7 @@ extern const int CODE_NUM;
 extern const int CONTINUOUS_NUM;
 extern const int CODE_VALUE[];
 extern const unicode::GeneralCategory GENERAL_CATEGORY[];
-const int CANONICAL_COMBINING_NUM = 872;
+const int CANONICAL_COMBINING_NUM = 536;
 extern const int CANONICAL_COMBINING_INDEX[];
 extern const int CANONICAL_COMBINING_CLASS[];
 extern const unicode::BidirectionalCategory BIDIRECTIONAL_CATEGORY[];

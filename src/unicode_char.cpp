@@ -60,10 +60,10 @@ unicode::GeneralCategory unicode::getGeneralCategory(int code) {
 
 int unicode::getCanonicalCombiningClass(int code) {
     int index = findLowerBound(CANONICAL_COMBINING_INDEX, CANONICAL_COMBINING_NUM, code);
-    if (index == -1 || CANONICAL_COMBINING_INDEX[index] != code) {
+    if (index == -1) {
         return 0;
     }
-    return CANONICAL_COMBINING_CLASS[index];
+    return index == -1 ? 0 : CANONICAL_COMBINING_CLASS[index];
 }
 
 unicode::BidirectionalCategory unicode::getBidirectionalCategory(int code) {
