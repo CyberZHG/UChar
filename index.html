@@ -67,6 +67,67 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
 <h1><a class="anchor" id="autotoc_md0"></a>
+Basic Information</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+General Category</h2>
+<p>Get the type of a character:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7">getGeneralCategory</a>(0x370) == GeneralCategory::Lu);</div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04">getBaseGeneralCategory</a>(0x21) == BaseGeneralCategory::P);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
+Canonical Combining Classes</h2>
+<p>The canonical combining classes are integers as they already have the integer definition:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434">getCanonicalCombiningClass</a>(0x302C) == 232);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+Bidirectional Category</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270">getBidirectionalCategory</a>(0x0030) == BidirectionalCategory::EN);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Decimal/Digit/Numeric Values</h2>
+<p>If the character has some numeric properties:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">UChar code = <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;3&#39;</span>)</div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#aec796d85bd29e2f5d43e11ef5d98a344">getDecimalDigitValue</a>(code) == 3);</div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a9ed6fb7ce7aeadc1994bbff9717e0f04">getDigitValue</a>(code) == 3);</div>
+<div class="line">assert(fabs(<a class="code" href="unicode__char_8h.html#ad8c4cd29d5c04d1dc774f5e6b81fb9b7">getNumericValue</a>(code) - 3.0) &lt;= 1e-8));</div>
+<div class="line"><span class="keyword">auto</span> fraction = <a class="code" href="unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c">getNumericFraction</a>(code);</div>
+<div class="line">assert(fraction.first == 3);</div>
+<div class="line">assert(fraction.second == 1);</div>
+</div><!-- fragment --><p><code>༳</code> represents <code>-1/2</code>:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">UChar code = 0x0F33;</div>
+<div class="line">assert(fabs(<a class="code" href="unicode__char_8h.html#ad8c4cd29d5c04d1dc774f5e6b81fb9b7">getNumericValue</a>(code) - (-0.5)) &lt;= 1e-8));</div>
+<div class="line"><span class="keyword">auto</span> fraction = <a class="code" href="unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c">getNumericFraction</a>(code);</div>
+<div class="line">assert(fraction.first == -1);</div>
+<div class="line">assert(fraction.second == 2);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+Mirrored</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a0e9c44d60a65ed0f7a6f41762f1bdc5a">isMirrored</a>(0x3C));</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+Upper/Lower/Title Cases</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a827a1de593760ef2ed4536b416fdbce9">getUpperCase</a>(<span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span>) == <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;A&#39;</span>));</div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86">getLowerCase</a>(<span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;A&#39;</span>) == <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span>));</div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#af31c9ca791f50c8ca3c9f18953a941c6">getTitleCase</a>(<span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span>) == <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;A&#39;</span>));</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
 Encoding &amp; Decoding</h1>
 <p>The code points can be converted to UTF-8 or UTF-16 string, and vice versa.</p>
 <p>An example to convert a UTF-8 encoded string to the code points:</p>
@@ -78,7 +139,7 @@ Encoding &amp; Decoding</h1>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;0x&quot;</span> &lt;&lt; code &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line">}</div>
 <div class="line">std::cout &lt;&lt; std::endl;</div>
-<div class="line"><span class="comment">// Outputs should be: 0x4f60 0x597d 0xff0c 0x4e16 0x754c 0xff01 </span></div>
+<div class="line"><span class="comment">// Outputs should be: &quot;0x4f60 0x597d 0xff0c 0x4e16 0x754c 0xff01 &quot;</span></div>
 </div><!-- fragment --><p>And you can convert it back to the UTF-8 string:</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> str = <a class="code" href="unicode__char_8h.html#a91c671dc640c8400c054f1e05edc8ee7">unicode::toUTF8</a>(codes);</div>
 <div class="line">std::cout &lt;&lt; str &lt;&lt; std::endl;</div>
@@ -86,9 +147,21 @@ Encoding &amp; Decoding</h1>
 </div><!-- fragment --><p>It's the same with UTF-16 string, but the related functions uses <code>std::u16string</code> as input and output. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
+<div class="ttc" id="aunicode__char_8h_html_a827a1de593760ef2ed4536b416fdbce9"><div class="ttname"><a href="unicode__char_8h.html#a827a1de593760ef2ed4536b416fdbce9">unicode::getUpperCase</a></div><div class="ttdeci">UChar getUpperCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:162</div></div>
+<div class="ttc" id="aunicode__char_8h_html_af31c9ca791f50c8ca3c9f18953a941c6"><div class="ttname"><a href="unicode__char_8h.html#af31c9ca791f50c8ca3c9f18953a941c6">unicode::getTitleCase</a></div><div class="ttdeci">UChar getTitleCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:170</div></div>
+<div class="ttc" id="aunicode__char_8h_html_ad8c4cd29d5c04d1dc774f5e6b81fb9b7"><div class="ttname"><a href="unicode__char_8h.html#ad8c4cd29d5c04d1dc774f5e6b81fb9b7">unicode::getNumericValue</a></div><div class="ttdeci">double getNumericValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:130</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a28b32213b7a2e49dcd2739878ea0731a"><div class="ttname"><a href="unicode__char_8h.html#a28b32213b7a2e49dcd2739878ea0731a">unicode::fromUTF8</a></div><div class="ttdeci">std::vector&lt; UChar &gt; fromUTF8(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> encode.cpp:89</div></div>
+<div class="ttc" id="aunicode__char_8h_html_ac4c76a93d5aa7b056c4084f9c19b0a04"><div class="ttname"><a href="unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04">unicode::getBaseGeneralCategory</a></div><div class="ttdeci">BaseGeneralCategory getBaseGeneralCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:62</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a9ed6fb7ce7aeadc1994bbff9717e0f04"><div class="ttname"><a href="unicode__char_8h.html#a9ed6fb7ce7aeadc1994bbff9717e0f04">unicode::getDigitValue</a></div><div class="ttdeci">int32_t getDigitValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:122</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a8dd9a6fe2c5b693e705aeac0d0a3750c"><div class="ttname"><a href="unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c">unicode::getNumericFraction</a></div><div class="ttdeci">std::pair&lt; int64_t, int64_t &gt; getNumericFraction(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:138</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a26834c8a76773a48368a8f52e0c29270"><div class="ttname"><a href="unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270">unicode::getBidirectionalCategory</a></div><div class="ttdeci">BidirectionalCategory getBidirectionalCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:74</div></div>
 <div class="ttc" id="aunicode__char_8h_html"><div class="ttname"><a href="unicode__char_8h.html">unicode_char.h</a></div><div class="ttdoc">Unicode information about a character.</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a2a5adca11cda8f424b8c70f547bce434"><div class="ttname"><a href="unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434">unicode::getCanonicalCombiningClass</a></div><div class="ttdeci">int32_t getCanonicalCombiningClass(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:66</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a74d728b8a2336ff918abdd79a01c4e86"><div class="ttname"><a href="unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86">unicode::getLowerCase</a></div><div class="ttdeci">UChar getLowerCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:166</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a0e9c44d60a65ed0f7a6f41762f1bdc5a"><div class="ttname"><a href="unicode__char_8h.html#a0e9c44d60a65ed0f7a6f41762f1bdc5a">unicode::isMirrored</a></div><div class="ttdeci">bool isMirrored(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:146</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a91c671dc640c8400c054f1e05edc8ee7"><div class="ttname"><a href="unicode__char_8h.html#a91c671dc640c8400c054f1e05edc8ee7">unicode::toUTF8</a></div><div class="ttdeci">std::string toUTF8(const std::vector&lt; UChar &gt; codes)</div><div class="ttdef"><b>Definition:</b> encode.cpp:58</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a1adec98b600f3addb8e0be3929c0adb7"><div class="ttname"><a href="unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7">unicode::getGeneralCategory</a></div><div class="ttdeci">GeneralCategory getGeneralCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:58</div></div>
+<div class="ttc" id="aunicode__char_8h_html_aec796d85bd29e2f5d43e11ef5d98a344"><div class="ttname"><a href="unicode__char_8h.html#aec796d85bd29e2f5d43e11ef5d98a344">unicode::getDecimalDigitValue</a></div><div class="ttdeci">int32_t getDecimalDigitValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:114</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

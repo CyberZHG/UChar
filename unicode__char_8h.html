@@ -132,6 +132,18 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a1e568476eae5abb5eceea3410420f953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961b2d3b61e86ffe9e33e4b5b50d8059"><td class="memItemLeft" align="right" valign="top"><a id="a961b2d3b61e86ffe9e33e4b5b50d8059"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>BaseGeneralCategory</b> { <br />
+&#160;&#160;<b>C</b>, 
+<b>L</b>, 
+<b>M</b>, 
+<b>N</b>, 
+<br />
+&#160;&#160;<b>P</b>, 
+<b>S</b>, 
+<b>Z</b>
+<br />
+ }</td></tr>
+<tr class="separator:a961b2d3b61e86ffe9e33e4b5b50d8059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc02789debf54f22d8aa620e2c3db30b"><td class="memItemLeft" align="right" valign="top"><a id="afc02789debf54f22d8aa620e2c3db30b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>BidirectionalCategory</b> { <br />
 &#160;&#160;<b>AL</b>, 
 <b>AN</b>, 
@@ -196,6 +208,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae9985cae977ac67100d7da5e6f6a1078"><td class="memItemLeft" align="right" valign="top"><a id="ae9985cae977ac67100d7da5e6f6a1078"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, GeneralCategory)</td></tr>
 <tr class="separator:ae9985cae977ac67100d7da5e6f6a1078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa02538ec81f5a5a6edfdb27a32e0d776"><td class="memItemLeft" align="right" valign="top"><a id="aa02538ec81f5a5a6edfdb27a32e0d776"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, BaseGeneralCategory)</td></tr>
+<tr class="separator:aa02538ec81f5a5a6edfdb27a32e0d776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeb70857bfeb9686767dd213aa2a9259"><td class="memItemLeft" align="right" valign="top"><a id="adeb70857bfeb9686767dd213aa2a9259"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, BidirectionalCategory)</td></tr>
 <tr class="separator:adeb70857bfeb9686767dd213aa2a9259"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,6 +219,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
 <tr class="separator:ad9b2d9d00c02526012a64e61699bc6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1adec98b600f3addb8e0be3929c0adb7"><td class="memItemLeft" align="right" valign="top">GeneralCategory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7">unicode::getGeneralCategory</a> (UChar code)</td></tr>
 <tr class="separator:a1adec98b600f3addb8e0be3929c0adb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c76a93d5aa7b056c4084f9c19b0a04"><td class="memItemLeft" align="right" valign="top">BaseGeneralCategory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04">unicode::getBaseGeneralCategory</a> (UChar code)</td></tr>
+<tr class="separator:ac4c76a93d5aa7b056c4084f9c19b0a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a5adca11cda8f424b8c70f547bce434"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434">unicode::getCanonicalCombiningClass</a> (UChar code)</td></tr>
 <tr class="separator:a2a5adca11cda8f424b8c70f547bce434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26834c8a76773a48368a8f52e0c29270"><td class="memItemLeft" align="right" valign="top">BidirectionalCategory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270">unicode::getBidirectionalCategory</a> (UChar code)</td></tr>
@@ -300,6 +317,25 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
       </table>
 </div><div class="memdoc">
 <p>Convert a UTF-8 string to a code point. </p>
+
+</div>
+</div>
+<a id="ac4c76a93d5aa7b056c4084f9c19b0a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c76a93d5aa7b056c4084f9c19b0a04">&#9670;&nbsp;</a></span>getBaseGeneralCategory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BaseGeneralCategory unicode::getBaseGeneralCategory </td>
+          <td>(</td>
+          <td class="paramtype">UChar&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the base general category of a code point. </p>
 
 </div>
 </div>
