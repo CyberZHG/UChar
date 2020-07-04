@@ -58,4 +58,12 @@ __TEST_U(EncodeTest, test_utf8_string) {
     __ASSERT_EQ(0x7f - 16, codes[2]);
 }
 
+__TEST_U(EncodeTest, test_utf16) {
+    std::vector<int32_t> codes = {0x10016, 0x6f};
+    auto gen = unicode::fromUTF16(unicode::toUTF16(codes));
+    __ASSERT_EQ(2u, gen.size());
+    __ASSERT_EQ(codes[0], gen[0]);
+    __ASSERT_EQ(codes[1], gen[1]);
+}
+
 }  // namespace test

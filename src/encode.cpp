@@ -115,4 +115,34 @@ std::vector<int32_t> fromUTF8(const std::string& str) {
     return codes;
 }
 
+std::u16string toUTF16(const std::vector<int32_t> codes) {
+    std::u16string str;
+    for (auto code : codes) {
+        if (0x10000 <= code && code <= 0x10ffff) {  // Surrogate pair
+            code -= 0x10000;
+            str.push_back(static_cast<char16_t>(0xd800 | (code >> 10)));
+            str.push_back(static_cast<char16_t>(0xdc00 | (code & 1023)));
+        } else {
+            str.push_back(static_cast<char16_t>(code));
+        }
+    }
+    return str;
+}
+
+std::vector<int32_t> fromUTF16(const std::u16string& str) {
+    std::vector<int32_t> codes;
+    size_t index = 0;
+    while (index < str.size()) {
+        if ((str[index] & 0xfc00) == 0xd800) {  // Surrogate pair
+            int32_t high = str[index] & 1023, low = str[index + 1] & 1023;
+            codes.emplace_back(((high << 10) | low) + 0x10000);
+            index += 2;
+        } else {
+            codes.emplace_back(static_cast<int32_t>(str[index]));
+            ++index;
+        }
+    }
+    return codes;
+}
+
 };  // namespace unicode

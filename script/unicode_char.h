@@ -23,3 +23,6 @@ std::string toUTF8(int32_t code);
 std::string toUTF8(const std::vector<int32_t> codes);
 int32_t fromUTF8Char(const std::string& str);
 std::vector<int32_t> fromUTF8(const std::string& str);
+
+std::u16string toUTF16(const std::vector<int32_t> codes);
+std::vector<int32_t> fromUTF16(const std::u16string& str);
