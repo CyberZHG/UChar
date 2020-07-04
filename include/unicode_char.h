@@ -73,7 +73,9 @@ int32_t getLowerCase(int32_t code);
 int32_t getTitleCase(int32_t code);
 
 std::string toUTF8(int32_t code);
-int32_t fromUTF8(const std::string& str);
+std::string toUTF8(const std::vector<int32_t> codes);
+int32_t fromUTF8Char(const std::string& str);
+std::vector<int32_t> fromUTF8(const std::string& str);
 
 }  // namespace unicode
 

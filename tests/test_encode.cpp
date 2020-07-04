@@ -25,20 +25,37 @@ namespace test {
 class EncodeTest : public UnitTest {};
 
 __TEST_U(EncodeTest, test_utf8) {
-    __ASSERT_EQ(64, unicode::fromUTF8(unicode::toUTF8(64)));
-    __ASSERT_EQ(0x7ff - 9, unicode::fromUTF8(unicode::toUTF8(0x7ff - 9)));
-    __ASSERT_EQ(0xffff - 10, unicode::fromUTF8(unicode::toUTF8(0xffff - 10)));
-    __ASSERT_EQ(0x1fffff - 11, unicode::fromUTF8(unicode::toUTF8(0x1fffff - 11)));
-    __ASSERT_EQ(0x3ffffff - 12, unicode::fromUTF8(unicode::toUTF8(0x3ffffff - 12)));
-    __ASSERT_EQ(0x7fffffff - 13, unicode::fromUTF8(unicode::toUTF8(0x7fffffff - 13)));
+    __ASSERT_EQ(64, unicode::fromUTF8Char(unicode::toUTF8(64)));
+    __ASSERT_EQ(0x7ff - 9, unicode::fromUTF8Char(unicode::toUTF8(0x7ff - 9)));
+    __ASSERT_EQ(0xffff - 10, unicode::fromUTF8Char(unicode::toUTF8(0xffff - 10)));
+    __ASSERT_EQ(0x1fffff - 11, unicode::fromUTF8Char(unicode::toUTF8(0x1fffff - 11)));
+    __ASSERT_EQ(0x3ffffff - 12, unicode::fromUTF8Char(unicode::toUTF8(0x3ffffff - 12)));
+    __ASSERT_EQ(0x7fffffff - 13, unicode::fromUTF8Char(unicode::toUTF8(0x7fffffff - 13)));
 }
 
 __TEST_U(EncodeTest, test_utf8_invalid) {
     __ASSERT_THROW(unicode::toUTF8(-10), std::runtime_error);
-    __ASSERT_THROW(unicode::fromUTF8(""), std::runtime_error);
+    __ASSERT_THROW(unicode::fromUTF8Char(""), std::runtime_error);
     auto str = unicode::toUTF8(0x7fffff);
     str.pop_back();
-    __ASSERT_THROW(unicode::fromUTF8(str), std::runtime_error);
+    __ASSERT_THROW(unicode::fromUTF8Char(str), std::runtime_error);
+}
+
+__TEST_U(EncodeTest, test_utf8_string) {
+    std::string str;
+    str += static_cast<char>(0xef);
+    str += static_cast<char>(0xbb);
+    str += static_cast<char>(0xbf);
+    str += unicode::toUTF8(std::vector<int32_t>{
+        0xffff - 14,
+        0x7fffffff - 15,
+        0x7f - 16,
+    });
+    auto codes = unicode::fromUTF8(str);
+    __ASSERT_EQ(3u, codes.size());
+    __ASSERT_EQ(0xffff - 14, codes[0]);
+    __ASSERT_EQ(0x7fffffff - 15, codes[1]);
+    __ASSERT_EQ(0x7f - 16, codes[2]);
 }
 
 }  // namespace test

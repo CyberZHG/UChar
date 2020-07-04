@@ -55,7 +55,15 @@ std::string toUTF8(int32_t code) {
     return str;
 }
 
-int32_t fromUTF8(const std::string& str) {
+std::string toUTF8(const std::vector<int32_t> codes) {
+    std::string str;
+    for (auto code : codes) {
+        str += toUTF8(code);
+    }
+    return str;
+}
+
+int32_t fromUTF8Char(const std::string& str) {
     if (str.empty()) {
         throw std::runtime_error("The input UTF8 character cannot be empty");
     }
@@ -76,6 +84,35 @@ int32_t fromUTF8(const std::string& str) {
         code = (code << 6) | (str[k] & 63);
     }
     return code;
+}
+
+std::vector<int32_t> fromUTF8(const std::string& str) {
+    std::vector<int32_t> codes;
+    size_t index = 0;
+    if (str.size() >= 3u
+        && str[0] == static_cast<char>(0xef)
+        && str[1] == static_cast<char>(0xbb)
+        && str[2] == static_cast<char>(0xbf)) {  // Skip BOM
+        index = 3;
+    }
+    while (index < str.size()) {
+        if ((str[index] & 128) == 0) {
+            codes.emplace_back(static_cast<int32_t>(str[index]));
+            ++index;
+        } else {
+            int len = 2;
+            for (int j = (1 << 5); (str[index] & j) > 0; j >>= 1) {
+                ++len;
+            }
+            int32_t code = str[index] & (31 >> (len - 2));
+            for (int k = 1; k < len; ++k) {
+                code = (code << 6) | (str[index + k] & 63);
+            }
+            codes.emplace_back(code);
+            index += len;
+        }
+    }
+    return codes;
 }
 
 };  // namespace unicode
