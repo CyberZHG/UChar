@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['toutf16_17',['toUTF16',['../unicode__char_8h.html#ac3509f3a362d03da2f902293e3b475d8',1,'unicode']]],
-  ['toutf8_18',['toUTF8',['../unicode__char_8h.html#a005af0d25c86a66d51a4dbd03b06f6d1',1,'unicode::toUTF8(UChar code)'],['../unicode__char_8h.html#a91c671dc640c8400c054f1e05edc8ee7',1,'unicode::toUTF8(const std::vector&lt; UChar &gt; codes)']]]
+  ['fromutf16_15',['fromUTF16',['../unicode__char_8h.html#a9142b14f83acd717305d51eff225c510',1,'unicode']]],
+  ['fromutf8_16',['fromUTF8',['../unicode__char_8h.html#a28b32213b7a2e49dcd2739878ea0731a',1,'unicode']]],
+  ['fromutf8char_17',['fromUTF8Char',['../unicode__char_8h.html#a4e40533a4b0256a77f2b9e4395f4d32d',1,'unicode']]]
 ];

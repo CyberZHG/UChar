@@ -1,16 +1,9 @@
 var searchData=
 [
-  ['getbasegeneralcategory_3',['getBaseGeneralCategory',['../unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04',1,'unicode']]],
-  ['getbidirectionalcategory_4',['getBidirectionalCategory',['../unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270',1,'unicode']]],
-  ['getcanonicalcombiningclass_5',['getCanonicalCombiningClass',['../unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434',1,'unicode']]],
-  ['getdecimaldigitvalue_6',['getDecimalDigitValue',['../unicode__char_8h.html#aec796d85bd29e2f5d43e11ef5d98a344',1,'unicode']]],
-  ['getdecompositionmapping_7',['getDecompositionMapping',['../unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145',1,'unicode::getDecompositionMapping(UChar code)'],['../unicode__char_8h.html#a80339e398544e6930ec003dfc508aa05',1,'unicode::getDecompositionMapping(UChar code, UChar buffer[])']]],
-  ['getdecompositionmappingtag_8',['getDecompositionMappingTag',['../unicode__char_8h.html#aa800b8f8db082e4047320225c1721f85',1,'unicode']]],
-  ['getdigitvalue_9',['getDigitValue',['../unicode__char_8h.html#a9ed6fb7ce7aeadc1994bbff9717e0f04',1,'unicode']]],
-  ['getgeneralcategory_10',['getGeneralCategory',['../unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7',1,'unicode']]],
-  ['getlowercase_11',['getLowerCase',['../unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86',1,'unicode']]],
-  ['getnumericfraction_12',['getNumericFraction',['../unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c',1,'unicode']]],
-  ['getnumericvalue_13',['getNumericValue',['../unicode__char_8h.html#ad8c4cd29d5c04d1dc774f5e6b81fb9b7',1,'unicode']]],
-  ['gettitlecase_14',['getTitleCase',['../unicode__char_8h.html#af31c9ca791f50c8ca3c9f18953a941c6',1,'unicode']]],
-  ['getuppercase_15',['getUpperCase',['../unicode__char_8h.html#a827a1de593760ef2ed4536b416fdbce9',1,'unicode']]]
+  ['canonical_5fcombining_5fclass_3',['CANONICAL_COMBINING_CLASS',['../unicode__data_8h.html#a23b878382f44674f51ed687f359e6716',1,'unicode']]],
+  ['canonical_5fcombining_5findex_4',['CANONICAL_COMBINING_INDEX',['../unicode__data_8h.html#a5f3b8cbd86b9fa6777ff4c0db02e9a21',1,'unicode']]],
+  ['canonical_5fcombining_5fnum_5',['CANONICAL_COMBINING_NUM',['../unicode__data_8h.html#ae0c96aa57090f7d59e43c7b843e30a8f',1,'unicode']]],
+  ['code_5fnum_6',['CODE_NUM',['../unicode__data_8h.html#a48f1190ac7d9c35d0e5155e1223d6eb0',1,'unicode']]],
+  ['code_5fvalue_7',['CODE_VALUE',['../unicode__data_8h.html#a0ea10b8c28db255eeb5efd0e9c81ec74',1,'unicode']]],
+  ['continuous_5fnum_8',['CONTINUOUS_NUM',['../unicode__data_8h.html#a172c880a3f5d2831fca5390c4ffed3e5',1,'unicode']]]
 ];

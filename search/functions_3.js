@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['toutf16_39',['toUTF16',['../unicode__char_8h.html#ac3509f3a362d03da2f902293e3b475d8',1,'unicode']]],
-  ['toutf8_40',['toUTF8',['../unicode__char_8h.html#a005af0d25c86a66d51a4dbd03b06f6d1',1,'unicode::toUTF8(UChar code)'],['../unicode__char_8h.html#a91c671dc640c8400c054f1e05edc8ee7',1,'unicode::toUTF8(const std::vector&lt; UChar &gt; codes)']]]
+  ['operator_3c_3c_77',['operator&lt;&lt;',['../unicode__char_8h.html#ae9985cae977ac67100d7da5e6f6a1078',1,'unicode::operator&lt;&lt;(std::ostream &amp;, GeneralCategory)'],['../unicode__char_8h.html#aa02538ec81f5a5a6edfdb27a32e0d776',1,'unicode::operator&lt;&lt;(std::ostream &amp;, BaseGeneralCategory)'],['../unicode__char_8h.html#adeb70857bfeb9686767dd213aa2a9259',1,'unicode::operator&lt;&lt;(std::ostream &amp;, BidirectionalCategory)'],['../unicode__char_8h.html#ad9b2d9d00c02526012a64e61699bc6a5',1,'unicode::operator&lt;&lt;(std::ostream &amp;, DecompositionMappingTag)']]]
 ];

@@ -91,97 +91,82 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef INCLUDE_UNICODE_CHAR_H_</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define INCLUDE_UNICODE_CHAR_H_</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>unicode {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using</span> UChar = int32_t;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">enum class</span> GeneralCategory {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    Cc, Cf, Co, Cs, Ll, Lm, Lo, Lt, Lu, Mc,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    Me, Mn, Nd, Nl, No, Pc, Pd, Pe, Pf, Pi,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Po, Ps, Sc, Sk, Sm, So, Zl, Zp, Zs</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">enum class</span> BaseGeneralCategory {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    C, L, M, N, P, S, Z</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, GeneralCategory);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, BaseGeneralCategory);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">enum class</span> BidirectionalCategory {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    AL, AN, B, BN, CS, EN, ES, ET, FSI, L,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    LRE, LRI, LRO, NSM, ON, PDF, PDI, R, RLE, RLI,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    RLO, S, WS</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, BidirectionalCategory);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">enum class</span> DecompositionMappingTag {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    NO_MAPPING, CANONICAL, CIRCLE, COMPAT, FINAL, FONT, FRACTION, INITIAL, ISOLATED, MEDIAL,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    NARROW, NOBREAK, SMALL, SQUARE, SUB, SUPER, VERTICAL, WIDE</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, DecompositionMappingTag);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>unicode {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using</span> UChar = int32_t;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="unicode__char_8h.html#a1e568476eae5abb5eceea3410420f953">   39</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="unicode__char_8h.html#a1e568476eae5abb5eceea3410420f953">GeneralCategory</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    Cc, Cf, Co, Cs, Ll, Lm, Lo, Lt, Lu, Mc,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Me, Mn, Nd, Nl, No, Pc, Pd, Pe, Pf, Pi,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Po, Ps, Sc, Sk, Sm, So, Zl, Zp, Zs</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="unicode__char_8h.html#a961b2d3b61e86ffe9e33e4b5b50d8059">   46</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="unicode__char_8h.html#a961b2d3b61e86ffe9e33e4b5b50d8059">BaseGeneralCategory</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    C, L, M, N, P, S, Z</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, GeneralCategory);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, BaseGeneralCategory);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">enum class</span> BidirectionalCategory {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    AL, AN, B, BN, CS, EN, ES, ET, FSI, L,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    LRE, LRI, LRO, NSM, ON, PDF, PDI, R, RLE, RLI,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    RLO, S, WS</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;GeneralCategory <a class="code" href="unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7">getGeneralCategory</a>(UChar code);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;BaseGeneralCategory <a class="code" href="unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04">getBaseGeneralCategory</a>(UChar code);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;int32_t <a class="code" href="unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434">getCanonicalCombiningClass</a>(UChar code);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;BidirectionalCategory <a class="code" href="unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270">getBidirectionalCategory</a>(UChar code);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;DecompositionMappingTag <a class="code" href="unicode__char_8h.html#aa800b8f8db082e4047320225c1721f85">getDecompositionMappingTag</a>(UChar code);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;std::vector&lt;UChar&gt; <a class="code" href="unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145">getDecompositionMapping</a>(UChar code);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> <a class="code" href="unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145">getDecompositionMapping</a>(UChar code, UChar buffer[]);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;std::ostream&amp; <a class="code" href="unicode__char_8h.html#ae9985cae977ac67100d7da5e6f6a1078">operator&lt;&lt;</a>(std::ostream&amp;, BidirectionalCategory);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="unicode__char_8h.html#ab1caa4dd6b14a06ffcf88acd7c82807e">   65</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="unicode__char_8h.html#ab1caa4dd6b14a06ffcf88acd7c82807e">DecompositionMappingTag</a> {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    NO_MAPPING, CANONICAL, CIRCLE, COMPAT, FINAL, FONT, FRACTION, INITIAL, ISOLATED, MEDIAL,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    NARROW, NOBREAK, SMALL, SQUARE, SUB, SUPER, VERTICAL, WIDE</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, DecompositionMappingTag);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;GeneralCategory getGeneralCategory(UChar code);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;BaseGeneralCategory getBaseGeneralCategory(UChar code);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;int32_t getCanonicalCombiningClass(UChar code);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;BidirectionalCategory getBidirectionalCategory(UChar code);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;int32_t <a class="code" href="unicode__char_8h.html#aec796d85bd29e2f5d43e11ef5d98a344">getDecimalDigitValue</a>(UChar code);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;int32_t <a class="code" href="unicode__char_8h.html#a9ed6fb7ce7aeadc1994bbff9717e0f04">getDigitValue</a>(UChar code);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">double</span> <a class="code" href="unicode__char_8h.html#ad8c4cd29d5c04d1dc774f5e6b81fb9b7">getNumericValue</a>(UChar code);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;std::pair&lt;int64_t, int64_t&gt; <a class="code" href="unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c">getNumericFraction</a>(UChar code);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="unicode__char_8h.html#a0e9c44d60a65ed0f7a6f41762f1bdc5a">isMirrored</a>(UChar code);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;UChar <a class="code" href="unicode__char_8h.html#a827a1de593760ef2ed4536b416fdbce9">getUpperCase</a>(UChar code);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;UChar <a class="code" href="unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86">getLowerCase</a>(UChar code);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;UChar <a class="code" href="unicode__char_8h.html#af31c9ca791f50c8ca3c9f18953a941c6">getTitleCase</a>(UChar code);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;DecompositionMappingTag getDecompositionMappingTag(UChar code);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;std::vector&lt;UChar&gt; getDecompositionMapping(UChar code);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span> getDecompositionMapping(UChar code, UChar buffer[]);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;int32_t getDecimalDigitValue(UChar code);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;int32_t getDigitValue(UChar code);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">double</span> getNumericValue(UChar code);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;std::pair&lt;int64_t, int64_t&gt; getNumericFraction(UChar code);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">bool</span> isMirrored(UChar code);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;std::string <a class="code" href="unicode__char_8h.html#a005af0d25c86a66d51a4dbd03b06f6d1">toUTF8</a>(UChar code);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;std::string <a class="code" href="unicode__char_8h.html#a005af0d25c86a66d51a4dbd03b06f6d1">toUTF8</a>(<span class="keyword">const</span> std::vector&lt;UChar&gt; codes);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;UChar <a class="code" href="unicode__char_8h.html#a4e40533a4b0256a77f2b9e4395f4d32d">fromUTF8Char</a>(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;std::vector&lt;UChar&gt; <a class="code" href="unicode__char_8h.html#a28b32213b7a2e49dcd2739878ea0731a">fromUTF8</a>(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;std::u16string <a class="code" href="unicode__char_8h.html#ac3509f3a362d03da2f902293e3b475d8">toUTF16</a>(<span class="keyword">const</span> std::vector&lt;UChar&gt; codes);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;std::vector&lt;UChar&gt; <a class="code" href="unicode__char_8h.html#a9142b14f83acd717305d51eff225c510">fromUTF16</a>(<span class="keyword">const</span> std::u16string&amp; str);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}  <span class="comment">// namespace unicode</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif  // INCLUDE_UNICODE_CHAR_H_</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;UChar getUpperCase(UChar code);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;UChar getLowerCase(UChar code);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;UChar getTitleCase(UChar code);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;std::string toUTF8(UChar code);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;std::string toUTF8(<span class="keyword">const</span> std::vector&lt;UChar&gt; codes);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;UChar fromUTF8Char(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;std::vector&lt;UChar&gt; fromUTF8(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;std::u16string toUTF16(<span class="keyword">const</span> std::vector&lt;UChar&gt; codes);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;std::vector&lt;UChar&gt; fromUTF16(<span class="keyword">const</span> std::u16string&amp; str);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}  <span class="comment">// namespace unicode</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif  // INCLUDE_UNICODE_CHAR_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aunicode__char_8h_html_a9142b14f83acd717305d51eff225c510"><div class="ttname"><a href="unicode__char_8h.html#a9142b14f83acd717305d51eff225c510">unicode::fromUTF16</a></div><div class="ttdeci">std::vector&lt; UChar &gt; fromUTF16(const std::u16string &amp;str)</div><div class="ttdef"><b>Definition:</b> encode.cpp:132</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a005af0d25c86a66d51a4dbd03b06f6d1"><div class="ttname"><a href="unicode__char_8h.html#a005af0d25c86a66d51a4dbd03b06f6d1">unicode::toUTF8</a></div><div class="ttdeci">std::string toUTF8(UChar code)</div><div class="ttdef"><b>Definition:</b> encode.cpp:24</div></div>
-<div class="ttc" id="aunicode__char_8h_html_ac3509f3a362d03da2f902293e3b475d8"><div class="ttname"><a href="unicode__char_8h.html#ac3509f3a362d03da2f902293e3b475d8">unicode::toUTF16</a></div><div class="ttdeci">std::u16string toUTF16(const std::vector&lt; UChar &gt; codes)</div><div class="ttdef"><b>Definition:</b> encode.cpp:118</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a827a1de593760ef2ed4536b416fdbce9"><div class="ttname"><a href="unicode__char_8h.html#a827a1de593760ef2ed4536b416fdbce9">unicode::getUpperCase</a></div><div class="ttdeci">UChar getUpperCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:162</div></div>
-<div class="ttc" id="aunicode__char_8h_html_af31c9ca791f50c8ca3c9f18953a941c6"><div class="ttname"><a href="unicode__char_8h.html#af31c9ca791f50c8ca3c9f18953a941c6">unicode::getTitleCase</a></div><div class="ttdeci">UChar getTitleCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:170</div></div>
-<div class="ttc" id="aunicode__char_8h_html_ad8c4cd29d5c04d1dc774f5e6b81fb9b7"><div class="ttname"><a href="unicode__char_8h.html#ad8c4cd29d5c04d1dc774f5e6b81fb9b7">unicode::getNumericValue</a></div><div class="ttdeci">double getNumericValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:130</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a28b32213b7a2e49dcd2739878ea0731a"><div class="ttname"><a href="unicode__char_8h.html#a28b32213b7a2e49dcd2739878ea0731a">unicode::fromUTF8</a></div><div class="ttdeci">std::vector&lt; UChar &gt; fromUTF8(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> encode.cpp:89</div></div>
-<div class="ttc" id="aunicode__char_8h_html_ac4c76a93d5aa7b056c4084f9c19b0a04"><div class="ttname"><a href="unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04">unicode::getBaseGeneralCategory</a></div><div class="ttdeci">BaseGeneralCategory getBaseGeneralCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:62</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a9ed6fb7ce7aeadc1994bbff9717e0f04"><div class="ttname"><a href="unicode__char_8h.html#a9ed6fb7ce7aeadc1994bbff9717e0f04">unicode::getDigitValue</a></div><div class="ttdeci">int32_t getDigitValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:122</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a4e40533a4b0256a77f2b9e4395f4d32d"><div class="ttname"><a href="unicode__char_8h.html#a4e40533a4b0256a77f2b9e4395f4d32d">unicode::fromUTF8Char</a></div><div class="ttdeci">UChar fromUTF8Char(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> encode.cpp:66</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a647a8e614fa24c6e50805850f968b145"><div class="ttname"><a href="unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145">unicode::getDecompositionMapping</a></div><div class="ttdeci">std::vector&lt; UChar &gt; getDecompositionMapping(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:86</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a8dd9a6fe2c5b693e705aeac0d0a3750c"><div class="ttname"><a href="unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c">unicode::getNumericFraction</a></div><div class="ttdeci">std::pair&lt; int64_t, int64_t &gt; getNumericFraction(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:138</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a26834c8a76773a48368a8f52e0c29270"><div class="ttname"><a href="unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270">unicode::getBidirectionalCategory</a></div><div class="ttdeci">BidirectionalCategory getBidirectionalCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:74</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a2a5adca11cda8f424b8c70f547bce434"><div class="ttname"><a href="unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434">unicode::getCanonicalCombiningClass</a></div><div class="ttdeci">int32_t getCanonicalCombiningClass(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:66</div></div>
-<div class="ttc" id="aunicode__char_8h_html_aa800b8f8db082e4047320225c1721f85"><div class="ttname"><a href="unicode__char_8h.html#aa800b8f8db082e4047320225c1721f85">unicode::getDecompositionMappingTag</a></div><div class="ttdeci">DecompositionMappingTag getDecompositionMappingTag(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:78</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a74d728b8a2336ff918abdd79a01c4e86"><div class="ttname"><a href="unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86">unicode::getLowerCase</a></div><div class="ttdeci">UChar getLowerCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:166</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a0e9c44d60a65ed0f7a6f41762f1bdc5a"><div class="ttname"><a href="unicode__char_8h.html#a0e9c44d60a65ed0f7a6f41762f1bdc5a">unicode::isMirrored</a></div><div class="ttdeci">bool isMirrored(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:146</div></div>
-<div class="ttc" id="aunicode__char_8h_html_a1adec98b600f3addb8e0be3929c0adb7"><div class="ttname"><a href="unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7">unicode::getGeneralCategory</a></div><div class="ttdeci">GeneralCategory getGeneralCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:58</div></div>
-<div class="ttc" id="aunicode__char_8h_html_aec796d85bd29e2f5d43e11ef5d98a344"><div class="ttname"><a href="unicode__char_8h.html#aec796d85bd29e2f5d43e11ef5d98a344">unicode::getDecimalDigitValue</a></div><div class="ttdeci">int32_t getDecimalDigitValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:114</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a961b2d3b61e86ffe9e33e4b5b50d8059"><div class="ttname"><a href="unicode__char_8h.html#a961b2d3b61e86ffe9e33e4b5b50d8059">unicode::BaseGeneralCategory</a></div><div class="ttdeci">BaseGeneralCategory</div><div class="ttdef"><b>Definition:</b> unicode_char.h:46</div></div>
+<div class="ttc" id="aunicode__char_8h_html_ab1caa4dd6b14a06ffcf88acd7c82807e"><div class="ttname"><a href="unicode__char_8h.html#ab1caa4dd6b14a06ffcf88acd7c82807e">unicode::DecompositionMappingTag</a></div><div class="ttdeci">DecompositionMappingTag</div><div class="ttdef"><b>Definition:</b> unicode_char.h:65</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a1e568476eae5abb5eceea3410420f953"><div class="ttname"><a href="unicode__char_8h.html#a1e568476eae5abb5eceea3410420f953">unicode::GeneralCategory</a></div><div class="ttdeci">GeneralCategory</div><div class="ttdef"><b>Definition:</b> unicode_char.h:39</div></div>
+<div class="ttc" id="aunicode__char_8h_html_ae9985cae977ac67100d7da5e6f6a1078"><div class="ttname"><a href="unicode__char_8h.html#ae9985cae977ac67100d7da5e6f6a1078">unicode::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;, GeneralCategory)</div><div class="ttdef"><b>Definition:</b> general_category.cpp:24</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

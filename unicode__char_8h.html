@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Unicode information about a character.  
+<p>The data file that stores the information.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
@@ -92,7 +92,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::UChar</b> =
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a1e568476eae5abb5eceea3410420f953"><td class="memItemLeft" align="right" valign="top"><a id="a1e568476eae5abb5eceea3410420f953"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>GeneralCategory</b> { <br />
+<tr class="memitem:a1e568476eae5abb5eceea3410420f953"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#a1e568476eae5abb5eceea3410420f953">unicode::GeneralCategory</a> { <br />
 &#160;&#160;<b>Cc</b>, 
 <b>Cf</b>, 
 <b>Co</b>, 
@@ -132,7 +132,7 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a1e568476eae5abb5eceea3410420f953"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961b2d3b61e86ffe9e33e4b5b50d8059"><td class="memItemLeft" align="right" valign="top"><a id="a961b2d3b61e86ffe9e33e4b5b50d8059"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>BaseGeneralCategory</b> { <br />
+<tr class="memitem:a961b2d3b61e86ffe9e33e4b5b50d8059"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#a961b2d3b61e86ffe9e33e4b5b50d8059">unicode::BaseGeneralCategory</a> { <br />
 &#160;&#160;<b>C</b>, 
 <b>L</b>, 
 <b>M</b>, 
@@ -176,7 +176,7 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:afc02789debf54f22d8aa620e2c3db30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1caa4dd6b14a06ffcf88acd7c82807e"><td class="memItemLeft" align="right" valign="top"><a id="ab1caa4dd6b14a06ffcf88acd7c82807e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>DecompositionMappingTag</b> { <br />
+<tr class="memitem:ab1caa4dd6b14a06ffcf88acd7c82807e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#ab1caa4dd6b14a06ffcf88acd7c82807e">unicode::DecompositionMappingTag</a> { <br />
 &#160;&#160;<b>NO_MAPPING</b>, 
 <b>CANONICAL</b>, 
 <b>CIRCLE</b>, 
@@ -205,17 +205,13 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae9985cae977ac67100d7da5e6f6a1078"><td class="memItemLeft" align="right" valign="top"><a id="ae9985cae977ac67100d7da5e6f6a1078"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, GeneralCategory)</td></tr>
+<tr class="memitem:ae9985cae977ac67100d7da5e6f6a1078"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#ae9985cae977ac67100d7da5e6f6a1078">unicode::operator&lt;&lt;</a> (std::ostream &amp;, GeneralCategory)</td></tr>
 <tr class="separator:ae9985cae977ac67100d7da5e6f6a1078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa02538ec81f5a5a6edfdb27a32e0d776"><td class="memItemLeft" align="right" valign="top"><a id="aa02538ec81f5a5a6edfdb27a32e0d776"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, BaseGeneralCategory)</td></tr>
+<tr class="memitem:aa02538ec81f5a5a6edfdb27a32e0d776"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#aa02538ec81f5a5a6edfdb27a32e0d776">unicode::operator&lt;&lt;</a> (std::ostream &amp;, BaseGeneralCategory)</td></tr>
 <tr class="separator:aa02538ec81f5a5a6edfdb27a32e0d776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeb70857bfeb9686767dd213aa2a9259"><td class="memItemLeft" align="right" valign="top"><a id="adeb70857bfeb9686767dd213aa2a9259"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, BidirectionalCategory)</td></tr>
+<tr class="memitem:adeb70857bfeb9686767dd213aa2a9259"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#adeb70857bfeb9686767dd213aa2a9259">unicode::operator&lt;&lt;</a> (std::ostream &amp;, BidirectionalCategory)</td></tr>
 <tr class="separator:adeb70857bfeb9686767dd213aa2a9259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9b2d9d00c02526012a64e61699bc6a5"><td class="memItemLeft" align="right" valign="top"><a id="ad9b2d9d00c02526012a64e61699bc6a5"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode::operator&lt;&lt;</b> (std::ostream &amp;, DecompositionMappingTag)</td></tr>
+<tr class="memitem:ad9b2d9d00c02526012a64e61699bc6a5"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#ad9b2d9d00c02526012a64e61699bc6a5">unicode::operator&lt;&lt;</a> (std::ostream &amp;, DecompositionMappingTag)</td></tr>
 <tr class="separator:ad9b2d9d00c02526012a64e61699bc6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1adec98b600f3addb8e0be3929c0adb7"><td class="memItemLeft" align="right" valign="top">GeneralCategory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unicode__char_8h.html#a1adec98b600f3addb8e0be3929c0adb7">unicode::getGeneralCategory</a> (UChar code)</td></tr>
 <tr class="separator:a1adec98b600f3addb8e0be3929c0adb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,8 +257,78 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
 <tr class="separator:a9142b14f83acd717305d51eff225c510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Unicode information about a character. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<div class="textblock"><p>The data file that stores the information. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a961b2d3b61e86ffe9e33e4b5b50d8059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a961b2d3b61e86ffe9e33e4b5b50d8059">&#9670;&nbsp;</a></span>BaseGeneralCategory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="unicode__char_8h.html#a961b2d3b61e86ffe9e33e4b5b50d8059">unicode::BaseGeneralCategory</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The types of base general category. </p>
+
+</div>
+</div>
+<a id="ab1caa4dd6b14a06ffcf88acd7c82807e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1caa4dd6b14a06ffcf88acd7c82807e">&#9670;&nbsp;</a></span>DecompositionMappingTag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="unicode__char_8h.html#ab1caa4dd6b14a06ffcf88acd7c82807e">unicode::DecompositionMappingTag</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The tags of decomposition mappingy. </p>
+
+</div>
+</div>
+<a id="a1e568476eae5abb5eceea3410420f953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e568476eae5abb5eceea3410420f953">&#9670;&nbsp;</a></span>GeneralCategory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="unicode__char_8h.html#a1e568476eae5abb5eceea3410420f953">unicode::GeneralCategory</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The types of general category. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a9142b14f83acd717305d51eff225c510"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9142b14f83acd717305d51eff225c510">&#9670;&nbsp;</a></span>fromUTF16()</h2>
 
@@ -392,7 +458,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the decimal digit value of a code point. </p>
+<p>Get the decimal digit value of a code point.</p>
+<dl class="section return"><dt>Returns</dt><dd>-1 will be returned if it is not a decimal digit. </dd></dl>
 
 </div>
 </div>
@@ -478,7 +545,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the digit value of a code point. </p>
+<p>Get the digit value of a code point.</p>
+<dl class="section return"><dt>Returns</dt><dd>-1 will be returned if it is not a digit. </dd></dl>
 
 </div>
 </div>
@@ -536,7 +604,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the numeric value of a code point in fraction form. </p>
+<p>Get the numeric value of a code point in fraction form.</p>
+<dl class="section return"><dt>Returns</dt><dd>{-1, 0} will be returned if it is not a numeric. </dd></dl>
 
 </div>
 </div>
@@ -555,7 +624,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the numeric value of a code point. </p>
+<p>Get the numeric value of a code point.</p>
+<dl class="section return"><dt>Returns</dt><dd>nan will be returned if it is not a numeric. </dd></dl>
 
 </div>
 </div>
@@ -615,6 +685,122 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>unicode
       </table>
 </div><div class="memdoc">
 <p>Whether the code point is mirrored. </p>
+
+</div>
+</div>
+<a id="aa02538ec81f5a5a6edfdb27a32e0d776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02538ec81f5a5a6edfdb27a32e0d776">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; unicode::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="unicode__char_8h.html#a961b2d3b61e86ffe9e33e4b5b50d8059">BaseGeneralCategory</a>&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs the base general category with its name. </p>
+
+</div>
+</div>
+<a id="adeb70857bfeb9686767dd213aa2a9259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb70857bfeb9686767dd213aa2a9259">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; unicode::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BidirectionalCategory&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs the bidirectional category with its name. </p>
+
+</div>
+</div>
+<a id="ad9b2d9d00c02526012a64e61699bc6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9b2d9d00c02526012a64e61699bc6a5">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; unicode::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="unicode__char_8h.html#ab1caa4dd6b14a06ffcf88acd7c82807e">DecompositionMappingTag</a>&#160;</td>
+          <td class="paramname"><em>tag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs the decomposition mapping tag with its name. </p>
+
+</div>
+</div>
+<a id="ae9985cae977ac67100d7da5e6f6a1078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9985cae977ac67100d7da5e6f6a1078">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; unicode::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="unicode__char_8h.html#a1e568476eae5abb5eceea3410420f953">GeneralCategory</a>&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs the general category with its name. </p>
 
 </div>
 </div>
