@@ -35,9 +35,11 @@ with open('include/unicode_char.h', 'a') as writer:
         writer.write(category)
     writer.write('\n};\n\n')
 
+    writer.write('/** Outputs the bidirectional category with its name. */\n')
     writer.write('std::ostream& operator<<(std::ostream&, BidirectionalCategory);\n\n')
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The types of bidirectional category. */\n')
     writer.write('extern const BidirectionalCategory BIDIRECTIONAL_CATEGORY[];\n\n')
 
 with open('src/bidirectional_category.cpp', 'w') as writer:

@@ -45,6 +45,7 @@ with open('UnicodeData.txt', 'r') as reader:
 
 
 with open('include/unicode_char.h', 'a') as writer:
+    writer.write('/** The tags of decomposition mappingy. */\n')
     writer.write('enum class DecompositionMappingTag {')
     for i, tag in enumerate(unique_tags):
         if i == 0:
@@ -56,13 +57,19 @@ with open('include/unicode_char.h', 'a') as writer:
         writer.write(tag)
     writer.write('\n};\n\n')
 
+    writer.write('/** Outputs the decomposition mapping tag with its name. */\n')
     writer.write('std::ostream& operator<<(std::ostream&, DecompositionMappingTag);\n\n')
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The total number of indices used to store the decomposition mappings. */\n')
     writer.write('const int32_t DECOMPOSITION_MAPPING_NUM = {};\n'.format(len(codes)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t DECOMPOSITION_MAPPING_INDEX[];\n')
+    writer.write('/** The decomposition mapping tags data. */\n')
     writer.write('extern const DecompositionMappingTag DECOMPOSITION_MAPPING_TAG[];\n')
+    writer.write('/** The start indices of decomposition mappings. */\n')
     writer.write('extern const int32_t DECOMPOSITION_MAPPING_OFFSET[];\n')
+    writer.write('/** The decomposition mapping characters data. */\n')
     writer.write('extern const UChar DECOMPOSITION_MAPPING_CHARS[];\n\n')
 
 with open('src/decomposition_mapping.cpp', 'w') as writer:

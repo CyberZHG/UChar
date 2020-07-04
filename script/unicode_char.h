@@ -1,8 +1,3 @@
-/**
- * @file
- * @brief Unicode information about a character.
- */
-
 /** Get the general category of a code point. */
 GeneralCategory getGeneralCategory(UChar code);
 /** Get the base general category of a code point. */

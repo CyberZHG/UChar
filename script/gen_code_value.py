@@ -27,8 +27,11 @@ with open('UnicodeData.txt', 'r') as reader:
             break
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The total number of codes. */\n')
     writer.write('extern const int32_t CODE_NUM;\n')
+    writer.write('/** The maximum offset that has a definition in the data file. */\n')
     writer.write('extern const int32_t CONTINUOUS_NUM;\n')
+    writer.write('/** The integer values of the characters. */\n')
     writer.write('extern const UChar CODE_VALUE[];\n\n')
 
 with open('src/code_value.cpp', 'w') as writer:

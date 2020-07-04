@@ -30,8 +30,11 @@ with open('UnicodeData.txt', 'r') as reader:
             classes[parts[3]] = parts[0]
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The total number of indices used to store the canonical combing class. */\n')
     writer.write('const int32_t CANONICAL_COMBINING_NUM = {};\n'.format(len(indices)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t CANONICAL_COMBINING_INDEX[];\n')
+    writer.write('/** The canonical combining class data. */\n')
     writer.write('extern const int32_t CANONICAL_COMBINING_CLASS[];\n\n')
 
 with open('src/canonical_combining_class.cpp', 'w') as writer:

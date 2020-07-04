@@ -24,6 +24,7 @@ with open('UnicodeData.txt', 'r') as reader:
     base_categories = [cat[0] for cat in categories]
 
 with open('include/unicode_char.h', 'a') as writer:
+    writer.write('/** The types of general category. */\n')
     writer.write('enum class GeneralCategory {')
     for i, category in enumerate(sorted(list(set(categories)))):
         if i == 0:
@@ -34,6 +35,7 @@ with open('include/unicode_char.h', 'a') as writer:
             writer.write(', ')
         writer.write(category)
     writer.write('\n};\n\n')
+    writer.write('/** The types of base general category. */\n')
     writer.write('enum class BaseGeneralCategory {')
     for i, category in enumerate(sorted(list(set(base_categories)))):
         if i == 0:
@@ -45,11 +47,15 @@ with open('include/unicode_char.h', 'a') as writer:
         writer.write(category)
     writer.write('\n};\n\n')
 
+    writer.write('/** Outputs the general category with its name. */\n')
     writer.write('std::ostream& operator<<(std::ostream&, GeneralCategory);\n')
+    writer.write('/** Outputs the base general category with its name. */\n')
     writer.write('std::ostream& operator<<(std::ostream&, BaseGeneralCategory);\n\n')
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The general category data. */\n')
     writer.write('extern const GeneralCategory GENERAL_CATEGORY[];\n')
+    writer.write('/** The base general category data. */\n')
     writer.write('extern const BaseGeneralCategory BASE_GENERAL_CATEGORY[];\n\n')
 
 with open('src/general_category.cpp', 'w') as writer:

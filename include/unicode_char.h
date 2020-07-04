@@ -20,6 +20,11 @@ SOFTWARE. */
 #ifndef INCLUDE_UNICODE_CHAR_H_
 #define INCLUDE_UNICODE_CHAR_H_
 
+/**
+ * @file
+ * @brief The data file that stores the information.
+ */
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,17 +35,21 @@ namespace unicode {
 
 using UChar = int32_t;
 
+/** The types of general category. */
 enum class GeneralCategory {
     Cc, Cf, Co, Cs, Ll, Lm, Lo, Lt, Lu, Mc,
     Me, Mn, Nd, Nl, No, Pc, Pd, Pe, Pf, Pi,
     Po, Ps, Sc, Sk, Sm, So, Zl, Zp, Zs
 };
 
+/** The types of base general category. */
 enum class BaseGeneralCategory {
     C, L, M, N, P, S, Z
 };
 
+/** Outputs the general category with its name. */
 std::ostream& operator<<(std::ostream&, GeneralCategory);
+/** Outputs the base general category with its name. */
 std::ostream& operator<<(std::ostream&, BaseGeneralCategory);
 
 enum class BidirectionalCategory {
@@ -49,19 +58,17 @@ enum class BidirectionalCategory {
     RLO, S, WS
 };
 
+/** Outputs the bidirectional category with its name. */
 std::ostream& operator<<(std::ostream&, BidirectionalCategory);
 
+/** The tags of decomposition mappingy. */
 enum class DecompositionMappingTag {
     NO_MAPPING, CANONICAL, CIRCLE, COMPAT, FINAL, FONT, FRACTION, INITIAL, ISOLATED, MEDIAL,
     NARROW, NOBREAK, SMALL, SQUARE, SUB, SUPER, VERTICAL, WIDE
 };
 
+/** Outputs the decomposition mapping tag with its name. */
 std::ostream& operator<<(std::ostream&, DecompositionMappingTag);
-
-/**
- * @file
- * @brief Unicode information about a character.
- */
 
 /** Get the general category of a code point. */
 GeneralCategory getGeneralCategory(UChar code);
@@ -81,13 +88,25 @@ std::vector<UChar> getDecompositionMapping(UChar code);
 /** Get the mapped decomposition of a code point. */
 void getDecompositionMapping(UChar code, UChar buffer[]);
 
-/** Get the decimal digit value of a code point. */
+/** Get the decimal digit value of a code point.
+ *
+ * @return -1 will be returned if it is not a decimal digit.
+ */
 int32_t getDecimalDigitValue(UChar code);
-/** Get the digit value of a code point. */
+/** Get the digit value of a code point.
+ *
+ * @return -1 will be returned if it is not a digit.
+ */
 int32_t getDigitValue(UChar code);
-/** Get the numeric value of a code point. */
+/** Get the numeric value of a code point.
+ *
+ * @return nan will be returned if it is not a numeric.
+ */
 double getNumericValue(UChar code);
-/** Get the numeric value of a code point in fraction form. */
+/** Get the numeric value of a code point in fraction form.
+ *
+ * @return {-1, 0} will be returned if it is not a numeric.
+ */
 std::pair<int64_t, int64_t> getNumericFraction(UChar code);
 
 /** Whether the code point is mirrored. */

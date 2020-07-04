@@ -29,8 +29,11 @@ with open('UnicodeData.txt', 'r') as reader:
             mirrors.append(parts[9])
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The total number of indices used to store the mirrored information. */\n')
     writer.write('const int32_t MIRRORED_NUM = {};\n'.format(len(codes)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t MIRRORED_INDEX[];\n')
+    writer.write('/** The mirrored information data. */\n')
     writer.write('extern const bool MIRRORED_VALUE[];\n\n')
 
 with open('src/mirrored.cpp', 'w') as writer:

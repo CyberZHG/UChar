@@ -30,11 +30,17 @@ with open('UnicodeData.txt', 'r') as reader:
             numerics.append(parts[8])
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The total number of indices used to store the numeric information. */\n')
     writer.write('const int32_t NUMERICS_NUM = {};\n'.format(len(codes)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t NUMERICS_INDEX[];\n')
+    writer.write('/** The decimal data. */\n')
     writer.write('extern const int32_t NUMERICS_DECIMAL[];\n')
+    writer.write('/** The digit data. */\n')
     writer.write('extern const int32_t NUMERICS_DIGIT[];\n')
+    writer.write('/** The numerator data. */\n')
     writer.write('extern const int64_t NUMERICS_NUMERATOR[];\n')
+    writer.write('/** The denominator data. */\n')
     writer.write('extern const int32_t NUMERICS_DENOMINATOR[];\n\n')
 
 with open('src/numeric.cpp', 'w') as writer:

@@ -31,14 +31,23 @@ with open('UnicodeData.txt', 'r') as reader:
             titles.append((parts[0], parts[14]))
 
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('/** The total number of indices used to store the upper cases. */\n')
     writer.write('const int32_t UPPER_NUM = {};\n'.format(len(uppers)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t UPPER_INDEX[];\n')
+    writer.write('/** The upper cases data. */\n')
     writer.write('extern const UChar UPPER_CASE[];\n')
+    writer.write('/** The total number of indices used to store the lower cases. */\n')
     writer.write('const int32_t LOWER_NUM = {};\n'.format(len(lowers)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t LOWER_INDEX[];\n')
+    writer.write('/** The lower cases data. */\n')
     writer.write('extern const UChar LOWER_CASE[];\n')
+    writer.write('/** The total number of indices used to store the title cases. */\n')
     writer.write('const int32_t TITLE_NUM = {};\n'.format(len(titles)))
+    writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int32_t TITLE_INDEX[];\n')
+    writer.write('/** The title cases data. */\n')
     writer.write('extern const UChar TITLE_CASE[];\n\n')
 
 with open('src/cases.cpp', 'w') as writer:
