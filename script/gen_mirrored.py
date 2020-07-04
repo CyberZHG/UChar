@@ -29,8 +29,8 @@ with open('UnicodeData.txt', 'r') as reader:
             mirrors.append(parts[9])
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('const int MIRRORED_NUM = {};\n'.format(len(codes)))
-    writer.write('extern const int MIRRORED_INDEX[];\n')
+    writer.write('const int32_t MIRRORED_NUM = {};\n'.format(len(codes)))
+    writer.write('extern const int32_t MIRRORED_INDEX[];\n')
     writer.write('extern const bool MIRRORED_VALUE[];\n')
 
 with open('src/mirrored.cpp', 'w') as writer:
@@ -39,7 +39,7 @@ with open('src/mirrored.cpp', 'w') as writer:
 
     writer.write('#include "unicode_data.h"\n\n')
 
-    writer.write('\nconst int MIRRORED_INDEX[] = {')
+    writer.write('\nconst int32_t MIRRORED_INDEX[] = {')
     for i, code in enumerate(codes):
         if i == 0:
             writer.write('\n    ')

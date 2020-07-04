@@ -30,9 +30,9 @@ with open('UnicodeData.txt', 'r') as reader:
             classes[parts[3]] = parts[0]
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('const int CANONICAL_COMBINING_NUM = {};\n'.format(len(indices)))
-    writer.write('extern const int CANONICAL_COMBINING_INDEX[];\n')
-    writer.write('extern const int CANONICAL_COMBINING_CLASS[];\n')
+    writer.write('const int32_t CANONICAL_COMBINING_NUM = {};\n'.format(len(indices)))
+    writer.write('extern const int32_t CANONICAL_COMBINING_INDEX[];\n')
+    writer.write('extern const int32_t CANONICAL_COMBINING_CLASS[];\n')
 
 with open('src/canonical_combining_class.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
@@ -40,7 +40,7 @@ with open('src/canonical_combining_class.cpp', 'w') as writer:
 
     writer.write('#include "unicode_data.h"\n\n')
 
-    writer.write('\nconst int CANONICAL_COMBINING_INDEX[] = {')
+    writer.write('\nconst int32_t CANONICAL_COMBINING_INDEX[] = {')
     for i, index in enumerate(indices):
         if i == 0:
             writer.write('\n    ')
@@ -51,7 +51,7 @@ with open('src/canonical_combining_class.cpp', 'w') as writer:
         writer.write('0x' + index)
     writer.write('\n};\n')
 
-    writer.write('\nconst int CANONICAL_COMBINING_CLASS[] = {')
+    writer.write('\nconst int32_t CANONICAL_COMBINING_CLASS[] = {')
     for i, canonical in enumerate(canonicals):
         if i == 0:
             writer.write('\n    ')

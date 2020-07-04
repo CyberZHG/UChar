@@ -20,7 +20,7 @@ SOFTWARE. */
 #include "unicode_data.h"
 
 
-const int NUMERICS_INDEX[] = {
+const int32_t NUMERICS_INDEX[] = {
     0x0030, 0x0031, 0x0032, 0x0033, 0x0034, 0x0035, 0x0036, 0x0037,
     0x0038, 0x0039, 0x00B2, 0x00B3, 0x00B9, 0x00BC, 0x00BD, 0x00BE,
     0x0660, 0x0661, 0x0662, 0x0663, 0x0664, 0x0665, 0x0666, 0x0667,
@@ -247,7 +247,7 @@ const int NUMERICS_INDEX[] = {
     0x1FBF6, 0x1FBF7, 0x1FBF8, 0x1FBF9, 0x2F890
 };
 
-const int NUMERICS_DECIMAL[] = {
+const int32_t NUMERICS_DECIMAL[] = {
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
     -1, -1, -1, -1, -1, -1, 0, 1, 2, 3,
     4, 5, 6, 7, 8, 9, 0, 1, 2, 3,
@@ -429,7 +429,7 @@ const int NUMERICS_DECIMAL[] = {
     2, 3, 4, 5, 6, 7, 8, 9, -1
 };
 
-const int NUMERICS_DIGIT[] = {
+const int32_t NUMERICS_DIGIT[] = {
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
     2, 3, 1, -1, -1, -1, 0, 1, 2, 3,
     4, 5, 6, 7, 8, 9, 0, 1, 2, 3,
@@ -793,7 +793,7 @@ const int64_t NUMERICS_NUMERATOR[] = {
     2LL, 3LL, 4LL, 5LL, 6LL, 7LL, 8LL, 9LL, 9LL
 };
 
-const int NUMERICS_DENOMINATOR[] = {
+const int32_t NUMERICS_DENOMINATOR[] = {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 4, 2, 4, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

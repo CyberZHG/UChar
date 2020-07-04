@@ -27,9 +27,9 @@ with open('UnicodeData.txt', 'r') as reader:
             break
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('extern const int CODE_NUM;\n')
-    writer.write('extern const int CONTINUOUS_NUM;\n')
-    writer.write('extern const int CODE_VALUE[];\n')
+    writer.write('extern const int32_t CODE_NUM;\n')
+    writer.write('extern const int32_t CONTINUOUS_NUM;\n')
+    writer.write('extern const int32_t CODE_VALUE[];\n')
 
 with open('src/code_value.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
@@ -37,9 +37,9 @@ with open('src/code_value.cpp', 'w') as writer:
 
     writer.write('#include "unicode_data.h"\n\n')
 
-    writer.write('const int CODE_NUM = %d;\n' % len(code_values))
-    writer.write('const int CONTINUOUS_NUM = %d;\n' % max_continuous)
-    writer.write('const int CODE_VALUE[] = {')
+    writer.write('const int32_t CODE_NUM = %d;\n' % len(code_values))
+    writer.write('const int32_t CONTINUOUS_NUM = %d;\n' % max_continuous)
+    writer.write('const int32_t CODE_VALUE[] = {')
     for i, value in enumerate(code_values):
         if i == 0:
             writer.write('\n    ')

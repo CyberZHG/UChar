@@ -18,14 +18,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "test.h"
+#include "unicode_char.h"
 
-using test::Framework;
+namespace test {
 
-int main() {
-    Framework* framework = Framework::getInstance();
-    framework->hidePassed();
-    framework->runTests();
-    framework->print();
-    framework->finish();
-    return 0;
+class EncodeTest : public UnitTest {};
+
+__TEST_U(EncodeTest, test_utf8) {
+    __ASSERT_EQ(64, unicode::fromUTF8(unicode::toUTF8(64)));
+    __ASSERT_EQ(0x7ff - 9, unicode::fromUTF8(unicode::toUTF8(0x7ff - 9)));
+    __ASSERT_EQ(0xffff - 10, unicode::fromUTF8(unicode::toUTF8(0xffff - 10)));
+    __ASSERT_EQ(0x1fffff - 11, unicode::fromUTF8(unicode::toUTF8(0x1fffff - 11)));
+    __ASSERT_EQ(0x3ffffff - 12, unicode::fromUTF8(unicode::toUTF8(0x3ffffff - 12)));
+    __ASSERT_EQ(0x7fffffff - 13, unicode::fromUTF8(unicode::toUTF8(0x7fffffff - 13)));
 }
+
+__TEST_U(EncodeTest, test_utf8_invalid) {
+    __ASSERT_THROW(unicode::toUTF8(-10), std::runtime_error);
+    __ASSERT_THROW(unicode::fromUTF8(""), std::runtime_error);
+    auto str = unicode::toUTF8(0x7fffff);
+    str.pop_back();
+    __ASSERT_THROW(unicode::fromUTF8(str), std::runtime_error);
+}
+
+}  // namespace test

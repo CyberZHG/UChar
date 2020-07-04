@@ -22,36 +22,36 @@ SOFTWARE. */
 
 #include "unicode_char.h"
 
-extern const int CODE_NUM;
-extern const int CONTINUOUS_NUM;
-extern const int CODE_VALUE[];
+extern const int32_t CODE_NUM;
+extern const int32_t CONTINUOUS_NUM;
+extern const int32_t CODE_VALUE[];
 extern const unicode::GeneralCategory GENERAL_CATEGORY[];
-const int CANONICAL_COMBINING_NUM = 536;
-extern const int CANONICAL_COMBINING_INDEX[];
-extern const int CANONICAL_COMBINING_CLASS[];
+const int32_t CANONICAL_COMBINING_NUM = 536;
+extern const int32_t CANONICAL_COMBINING_INDEX[];
+extern const int32_t CANONICAL_COMBINING_CLASS[];
 extern const unicode::BidirectionalCategory BIDIRECTIONAL_CATEGORY[];
-const int DECOMPOSITION_MAPPING_NUM = 5736;
-extern const int DECOMPOSITION_MAPPING_INDEX[];
+const int32_t DECOMPOSITION_MAPPING_NUM = 5736;
+extern const int32_t DECOMPOSITION_MAPPING_INDEX[];
 extern const unicode::DecompositionMappingTag DECOMPOSITION_MAPPING_TAG[];
-extern const int DECOMPOSITION_MAPPING_OFFSET[];
-extern const int DECOMPOSITION_MAPPING_CHARS[];
-const int NUMERICS_NUM = 1789;
-extern const int NUMERICS_INDEX[];
-extern const int NUMERICS_DECIMAL[];
-extern const int NUMERICS_DIGIT[];
+extern const int32_t DECOMPOSITION_MAPPING_OFFSET[];
+extern const int32_t DECOMPOSITION_MAPPING_CHARS[];
+const int32_t NUMERICS_NUM = 1789;
+extern const int32_t NUMERICS_INDEX[];
+extern const int32_t NUMERICS_DECIMAL[];
+extern const int32_t NUMERICS_DIGIT[];
 extern const int64_t NUMERICS_NUMERATOR[];
-extern const int NUMERICS_DENOMINATOR[];
-const int MIRRORED_NUM = 227;
-extern const int MIRRORED_INDEX[];
+extern const int32_t NUMERICS_DENOMINATOR[];
+const int32_t MIRRORED_NUM = 227;
+extern const int32_t MIRRORED_INDEX[];
 extern const bool MIRRORED_VALUE[];
-const int UPPER_NUM = 1410;
-extern const int UPPER_INDEX[];
-extern const int UPPER_CASE[];
-const int LOWER_NUM = 1393;
-extern const int LOWER_INDEX[];
-extern const int LOWER_CASE[];
-const int TITLE_NUM = 1414;
-extern const int TITLE_INDEX[];
-extern const int TITLE_CASE[];
+const int32_t UPPER_NUM = 1410;
+extern const int32_t UPPER_INDEX[];
+extern const int32_t UPPER_CASE[];
+const int32_t LOWER_NUM = 1393;
+extern const int32_t LOWER_INDEX[];
+extern const int32_t LOWER_CASE[];
+const int32_t TITLE_NUM = 1414;
+extern const int32_t TITLE_INDEX[];
+extern const int32_t TITLE_CASE[];
 
 #endif  // INCLUDE_UNICODE_DATA_H_

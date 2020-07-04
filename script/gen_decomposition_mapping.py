@@ -59,11 +59,11 @@ with open('include/unicode_char.h', 'a') as writer:
     writer.write('std::ostream& operator<<(std::ostream&, DecompositionMappingTag);\n\n')
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('const int DECOMPOSITION_MAPPING_NUM = {};\n'.format(len(codes)))
-    writer.write('extern const int DECOMPOSITION_MAPPING_INDEX[];\n')
+    writer.write('const int32_t DECOMPOSITION_MAPPING_NUM = {};\n'.format(len(codes)))
+    writer.write('extern const int32_t DECOMPOSITION_MAPPING_INDEX[];\n')
     writer.write('extern const unicode::DecompositionMappingTag DECOMPOSITION_MAPPING_TAG[];\n')
-    writer.write('extern const int DECOMPOSITION_MAPPING_OFFSET[];\n')
-    writer.write('extern const int DECOMPOSITION_MAPPING_CHARS[];\n')
+    writer.write('extern const int32_t DECOMPOSITION_MAPPING_OFFSET[];\n')
+    writer.write('extern const int32_t DECOMPOSITION_MAPPING_CHARS[];\n')
 
 with open('src/decomposition_mapping.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
@@ -84,7 +84,7 @@ with open('src/decomposition_mapping.cpp', 'w') as writer:
     writer.write('    return os;\n')
     writer.write('}\n\n')
 
-    writer.write('\nconst int DECOMPOSITION_MAPPING_INDEX[] = {')
+    writer.write('\nconst int32_t DECOMPOSITION_MAPPING_INDEX[] = {')
     for i, code in enumerate(codes):
         if i == 0:
             writer.write('\n    ')
@@ -106,7 +106,7 @@ with open('src/decomposition_mapping.cpp', 'w') as writer:
         writer.write(tag)
     writer.write('\n};\n')
 
-    writer.write('\nconst int DECOMPOSITION_MAPPING_OFFSET[] = {')
+    writer.write('\nconst int32_t DECOMPOSITION_MAPPING_OFFSET[] = {')
     for i, offset in enumerate(offsets):
         if i == 0:
             writer.write('\n    ')
@@ -117,7 +117,7 @@ with open('src/decomposition_mapping.cpp', 'w') as writer:
         writer.write(str(offset))
     writer.write('\n};\n')
 
-    writer.write('\nconst int DECOMPOSITION_MAPPING_CHARS[] = {')
+    writer.write('\nconst int32_t DECOMPOSITION_MAPPING_CHARS[] = {')
     i = 0
     for decomposition in decompositions:
         for code in decomposition:
@@ -146,7 +146,7 @@ with open('tests/test_decomposition_mapping_gen.cpp', 'w') as writer:
     writer.write('class DecompositionMappingGenTest : public UnitTest {};\n\n')
 
     writer.write('__TEST_U(DecompositionMappingGenTest, test_cats) {\n')
-    writer.write('    int buffer[16];\n')
+    writer.write('    int32_t buffer[16];\n')
     appeared = set()
     for code, tag, decomposition in zip(codes, tags, decompositions):
         if tag not in appeared:

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 cd tests && \
+    find . -name "*.gcda" -delete && \
     cmake . && \
     make all && \
     ./test && \

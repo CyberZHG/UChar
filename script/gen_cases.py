@@ -31,15 +31,15 @@ with open('UnicodeData.txt', 'r') as reader:
             titles.append((parts[0], parts[14]))
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('const int UPPER_NUM = {};\n'.format(len(uppers)))
-    writer.write('extern const int UPPER_INDEX[];\n')
-    writer.write('extern const int UPPER_CASE[];\n')
-    writer.write('const int LOWER_NUM = {};\n'.format(len(lowers)))
-    writer.write('extern const int LOWER_INDEX[];\n')
-    writer.write('extern const int LOWER_CASE[];\n')
-    writer.write('const int TITLE_NUM = {};\n'.format(len(titles)))
-    writer.write('extern const int TITLE_INDEX[];\n')
-    writer.write('extern const int TITLE_CASE[];\n')
+    writer.write('const int32_t UPPER_NUM = {};\n'.format(len(uppers)))
+    writer.write('extern const int32_t UPPER_INDEX[];\n')
+    writer.write('extern const int32_t UPPER_CASE[];\n')
+    writer.write('const int32_t LOWER_NUM = {};\n'.format(len(lowers)))
+    writer.write('extern const int32_t LOWER_INDEX[];\n')
+    writer.write('extern const int32_t LOWER_CASE[];\n')
+    writer.write('const int32_t TITLE_NUM = {};\n'.format(len(titles)))
+    writer.write('extern const int32_t TITLE_INDEX[];\n')
+    writer.write('extern const int32_t TITLE_CASE[];\n')
 
 with open('src/cases.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
@@ -49,7 +49,7 @@ with open('src/cases.cpp', 'w') as writer:
 
     for name, cases in zip(['UPPER', 'LOWER', 'TITLE'],
                            [uppers, lowers, titles]):
-        writer.write('\nconst int {}_INDEX[] = {{'.format(name))
+        writer.write('\nconst int32_t {}_INDEX[] = {{'.format(name))
         for i, case in enumerate(cases):
             if i == 0:
                 writer.write('\n    ')
@@ -60,7 +60,7 @@ with open('src/cases.cpp', 'w') as writer:
             writer.write('0x' + case[0])
         writer.write('\n};\n')
 
-        writer.write('\nconst int {}_CASE[] = {{'.format(name))
+        writer.write('\nconst int32_t {}_CASE[] = {{'.format(name))
         for i, case in enumerate(cases):
             if i == 0:
                 writer.write('\n    ')
