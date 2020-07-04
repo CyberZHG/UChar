@@ -1,6 +1,9 @@
 UChar
 =====
 
+![CI](https://github.com/CyberZHG/UChar/workflows/CI/badge.svg)
+[![Deploy](https://github.com/CyberZHG/UChar/workflows/Deploy/badge.svg)](https://cyberzhg.github.io/UChar/)
+
 ## Basic Information
 
 ### General Category
@@ -85,6 +88,29 @@ using namespace unicode;
 assert(getUpperCase(static_cast<UChar>('a') == static_cast<UChar>('A'));
 assert(getLowerCase(static_cast<UChar>('A') == static_cast<UChar>('a'));
 assert(getTitleCase(static_cast<UChar>('a') == static_cast<UChar>('A'));
+```
+
+### Decomposition Mapping
+
+The character `㉐` is the partnership sign, and its decomposition is `PTE`:
+
+```cpp
+#include "unicode_char.h"
+using namespace unicode;
+
+assert(getDecompositionMappingTag(0x3250)) == DecompositionMappingTag::SQUARE);
+auto decomposition = getDecompositionMapping(0x3250);
+assert(decomposition.size() == 3u);
+assert(decomposition[0] == 0x50);
+assert(decomposition[1] == 0x54);
+assert(decomposition[2] == 0x45);
+
+UChar buffer[16];
+getDecompositionMapping(0x3250, buffer);
+assert(buffer[0] == 0x50);
+assert(buffer[1] == 0x54);
+assert(buffer[2] == 0x45);
+assert(buffer[3] == 0);
 ```
 
 ## Encoding & Decoding
