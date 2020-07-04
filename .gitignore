@@ -11,3 +11,6 @@ Makefile
 # Test
 tests/test
 tests/coverage
+
+# Docs
+docs

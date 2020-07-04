@@ -7,13 +7,18 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+      - name: Build
+        uses: mattnotmitt/doxygen-action@v1
+        with:
+          working-directory: '.'
+          doxyfile-path: 'doxygen.cfg'
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
