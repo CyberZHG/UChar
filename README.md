@@ -11,11 +11,11 @@ Get the type of a character:
 #include "unicode_char.h"
 using namespace unicode;
 
-assert(GeneralCategory::Lu, getGeneralCategory(0x370));
-assert(BaseGeneralCategory::P, getBaseGeneralCategory(0x21));
+assert(getGeneralCategory(0x370) == GeneralCategory::Lu);
+assert(getBaseGeneralCategory(0x21) == BaseGeneralCategory::P);
 ```
 
-## Canonical Combining Classes
+### Canonical Combining Classes
 
 The canonical combining classes are integers as they already have the integer definition:
 
@@ -24,6 +24,67 @@ The canonical combining classes are integers as they already have the integer de
 using namespace unicode;
 
 assert(getCanonicalCombiningClass(0x302C) == 232);
+```
+
+### Bidirectional Category
+
+```cpp
+#include "unicode_char.h"
+using namespace unicode;
+
+assert(getBidirectionalCategory(0x0030) == BidirectionalCategory::EN);
+```
+
+### Decimal/Digit/Numeric Values
+
+If the character has some numeric properties:
+
+```cpp
+#include <cmath>
+#include "unicode_char.h"
+using namespace unicode;
+
+UChar code = static_cast<UChar>('3')
+assert(getDecimalDigitValue(code) == 3);
+assert(getDigitValue(code) == 3);
+assert(fabs(getNumericValue(code) - 3.0) <= 1e-8));
+auto fraction = getNumericFraction(code);
+assert(fraction.first == 3);
+assert(fraction.second == 1);
+```
+
+`༳` represents `-1/2`:
+
+```cpp
+#include <cmath>
+#include "unicode_char.h"
+using namespace unicode;
+
+UChar code = 0x0F33;
+assert(fabs(getNumericValue(code) - (-0.5)) <= 1e-8));
+auto fraction = getNumericFraction(code);
+assert(fraction.first == -1);
+assert(fraction.second == 2);
+```
+
+### Mirrored
+
+```cpp
+#include "unicode_char.h"
+using namespace unicode;
+
+assert(isMirrored(0x3C));
+```
+
+### Upper/Lower/Title Cases
+
+```cpp
+#include "unicode_char.h"
+using namespace unicode;
+
+assert(getUpperCase(static_cast<UChar>('a') == static_cast<UChar>('A'));
+assert(getLowerCase(static_cast<UChar>('A') == static_cast<UChar>('a'));
+assert(getTitleCase(static_cast<UChar>('a') == static_cast<UChar>('A'));
 ```
 
 ## Encoding & Decoding

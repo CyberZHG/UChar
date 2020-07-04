@@ -21,13 +21,25 @@ std::vector<UChar> getDecompositionMapping(UChar code);
 /** Get the mapped decomposition of a code point. */
 void getDecompositionMapping(UChar code, UChar buffer[]);
 
-/** Get the decimal digit value of a code point. */
+/** Get the decimal digit value of a code point.
+ *
+ * @return -1 will be returned if it is not a decimal digit.
+ */
 int32_t getDecimalDigitValue(UChar code);
-/** Get the digit value of a code point. */
+/** Get the digit value of a code point.
+ *
+ * @return -1 will be returned if it is not a digit.
+ */
 int32_t getDigitValue(UChar code);
-/** Get the numeric value of a code point. */
+/** Get the numeric value of a code point.
+ *
+ * @return nan will be returned if it is not a numeric.
+ */
 double getNumericValue(UChar code);
-/** Get the numeric value of a code point in fraction form. */
+/** Get the numeric value of a code point in fraction form.
+ *
+ * @return {-1, 0} will be returned if it is not a numeric.
+ */
 std::pair<int64_t, int64_t> getNumericFraction(UChar code);
 
 /** Whether the code point is mirrored. */
