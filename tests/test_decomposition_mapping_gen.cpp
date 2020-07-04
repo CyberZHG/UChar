@@ -25,7 +25,7 @@ namespace test {
 class DecompositionMappingGenTest : public UnitTest {};
 
 __TEST_U(DecompositionMappingGenTest, test_cats) {
-    int32_t buffer[16];
+    unicode::UChar buffer[16];
     __ASSERT_EQ(unicode::DecompositionMappingTag::NO_MAPPING, unicode::getDecompositionMappingTag(0x0000)); {
         auto decomposition = unicode::getDecompositionMapping(0x0000);
         __ASSERT_EQ(1u, decomposition.size());

@@ -1,28 +1,28 @@
-GeneralCategory getGeneralCategory(int32_t code);
+GeneralCategory getGeneralCategory(UChar code);
 
-int32_t getCanonicalCombiningClass(int32_t code);
+int32_t getCanonicalCombiningClass(UChar code);
 
-BidirectionalCategory getBidirectionalCategory(int32_t code);
+BidirectionalCategory getBidirectionalCategory(UChar code);
 
-DecompositionMappingTag getDecompositionMappingTag(int32_t code);
-std::vector<int32_t> getDecompositionMapping(int32_t code);
-void getDecompositionMapping(int32_t code, int32_t buffer[]);
+DecompositionMappingTag getDecompositionMappingTag(UChar code);
+std::vector<UChar> getDecompositionMapping(UChar code);
+void getDecompositionMapping(UChar code, UChar buffer[]);
 
-int32_t getDecimalDigitValue(int32_t code);
-int32_t getDigitValue(int32_t code);
-double getNumericValue(int32_t code);
-std::pair<int64_t, int64_t> getNumericFraction(int32_t code);
+int32_t getDecimalDigitValue(UChar code);
+int32_t getDigitValue(UChar code);
+double getNumericValue(UChar code);
+std::pair<int64_t, int64_t> getNumericFraction(UChar code);
 
-bool isMirrored(int32_t code);
+bool isMirrored(UChar code);
 
-int32_t getUpperCase(int32_t code);
-int32_t getLowerCase(int32_t code);
-int32_t getTitleCase(int32_t code);
+int32_t getUpperCase(UChar code);
+int32_t getLowerCase(UChar code);
+int32_t getTitleCase(UChar code);
 
-std::string toUTF8(int32_t code);
-std::string toUTF8(const std::vector<int32_t> codes);
-int32_t fromUTF8Char(const std::string& str);
-std::vector<int32_t> fromUTF8(const std::string& str);
+std::string toUTF8(UChar code);
+std::string toUTF8(const std::vector<UChar> codes);
+UChar fromUTF8Char(const std::string& str);
+std::vector<UChar> fromUTF8(const std::string& str);
 
-std::u16string toUTF16(const std::vector<int32_t> codes);
-std::vector<int32_t> fromUTF16(const std::u16string& str);
+std::u16string toUTF16(const std::vector<UChar> codes);
+std::vector<UChar> fromUTF16(const std::u16string& str);

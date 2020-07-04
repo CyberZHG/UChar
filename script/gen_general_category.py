@@ -37,17 +37,16 @@ with open('include/unicode_char.h', 'a') as writer:
     writer.write('std::ostream& operator<<(std::ostream&, GeneralCategory);\n\n')
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('extern const unicode::GeneralCategory GENERAL_CATEGORY[];\n')
+    writer.write('extern const GeneralCategory GENERAL_CATEGORY[];\n\n')
 
 with open('src/general_category.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
         writer.write(reader.read())
 
     writer.write('#include "unicode_data.h"\n\n')
+    writer.write('namespace unicode {\n\n')
 
-    writer.write('using unicode::GeneralCategory;\n\n')
-
-    writer.write('std::ostream& unicode::operator<<(std::ostream& os, GeneralCategory c) {\n')
+    writer.write('std::ostream& operator<<(std::ostream& os, GeneralCategory c) {\n')
     writer.write('    switch (c) {\n')
     for category in sorted(list(set(categories))):
         writer.write('    case GeneralCategory::{}: os << "{}"; break;\n'.format(category, category))
@@ -64,7 +63,9 @@ with open('src/general_category.cpp', 'w') as writer:
         else:
             writer.write(', ')
         writer.write('GeneralCategory::%s' % category)
-    writer.write('\n};\n')
+    writer.write('\n};\n\n')
+
+    writer.write('}  // namespace unicode\n')
 
 with open('tests/test_general_category_gen.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:

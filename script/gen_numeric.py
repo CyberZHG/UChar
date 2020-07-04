@@ -35,13 +35,14 @@ with open('include/unicode_data.h', 'a') as writer:
     writer.write('extern const int32_t NUMERICS_DECIMAL[];\n')
     writer.write('extern const int32_t NUMERICS_DIGIT[];\n')
     writer.write('extern const int64_t NUMERICS_NUMERATOR[];\n')
-    writer.write('extern const int32_t NUMERICS_DENOMINATOR[];\n')
+    writer.write('extern const int32_t NUMERICS_DENOMINATOR[];\n\n')
 
 with open('src/numeric.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
         writer.write(reader.read())
 
     writer.write('#include "unicode_data.h"\n\n')
+    writer.write('namespace unicode {\n\n')
 
     writer.write('\nconst int32_t NUMERICS_INDEX[] = {')
     for i, code in enumerate(codes):
@@ -111,4 +112,6 @@ with open('src/numeric.cpp', 'w') as writer:
                 writer.write('1')
         else:
             writer.write('0')
-    writer.write('\n};\n')
+    writer.write('\n};\n\n')
+
+    writer.write('}  // namespace unicode\n')

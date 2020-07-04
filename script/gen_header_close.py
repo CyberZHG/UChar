@@ -20,6 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 with open('include/unicode_data.h', 'a') as writer:
+    writer.write('}  // namespace unicode\n')
     writer.write('\n#endif  // INCLUDE_UNICODE_DATA_H_\n')
 
 with open('include/unicode_char.h', 'a') as writer:

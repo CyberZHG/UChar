@@ -19,9 +19,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "unicode_data.h"
 
-using unicode::GeneralCategory;
+namespace unicode {
 
-std::ostream& unicode::operator<<(std::ostream& os, GeneralCategory c) {
+std::ostream& operator<<(std::ostream& os, GeneralCategory c) {
     switch (c) {
     case GeneralCategory::Cc: os << "Cc"; break;
     case GeneralCategory::Cf: os << "Cf"; break;
@@ -6819,3 +6819,5 @@ const GeneralCategory GENERAL_CATEGORY[] = {
     GeneralCategory::Mn, GeneralCategory::Mn, GeneralCategory::Mn, GeneralCategory::Co, GeneralCategory::Co,
     GeneralCategory::Co, GeneralCategory::Co
 };
+
+}  // namespace unicode

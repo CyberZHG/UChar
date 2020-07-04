@@ -19,7 +19,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "unicode_data.h"
 
-using unicode::DecompositionMappingTag;
+namespace unicode {
 
 const DecompositionMappingTag NO_MAPPING = DecompositionMappingTag::NO_MAPPING;
 const DecompositionMappingTag CANONICAL = DecompositionMappingTag::CANONICAL;
@@ -40,7 +40,7 @@ const DecompositionMappingTag SUPER = DecompositionMappingTag::SUPER;
 const DecompositionMappingTag VERTICAL = DecompositionMappingTag::VERTICAL;
 const DecompositionMappingTag WIDE = DecompositionMappingTag::WIDE;
 
-std::ostream& unicode::operator<<(std::ostream& os, DecompositionMappingTag tag) {
+std::ostream& operator<<(std::ostream& os, DecompositionMappingTag tag) {
     switch (tag) {
     case NO_MAPPING: os << ""; break;
     case CANONICAL: os << "canonical"; break;
@@ -3583,3 +3583,5 @@ const int32_t DECOMPOSITION_MAPPING_CHARS[] = {
     0x2A0CE, 0x4CF8, 0x2A105, 0x2A20E, 0x2A291, 0x9EBB, 0x4D56, 0x9EF9,
     0x9EFE, 0x9F05, 0x9F0F, 0x9F16, 0x9F3B, 0x2A600
 };
+
+}  // namespace unicode

@@ -19,6 +19,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "unicode_data.h"
 
+namespace unicode {
+
 
 const int32_t NUMERICS_INDEX[] = {
     0x0030, 0x0031, 0x0032, 0x0033, 0x0034, 0x0035, 0x0036, 0x0037,
@@ -974,3 +976,5 @@ const int32_t NUMERICS_DENOMINATOR[] = {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1
 };
+
+}  // namespace unicode

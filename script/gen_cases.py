@@ -33,19 +33,20 @@ with open('UnicodeData.txt', 'r') as reader:
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('const int32_t UPPER_NUM = {};\n'.format(len(uppers)))
     writer.write('extern const int32_t UPPER_INDEX[];\n')
-    writer.write('extern const int32_t UPPER_CASE[];\n')
+    writer.write('extern const UChar UPPER_CASE[];\n')
     writer.write('const int32_t LOWER_NUM = {};\n'.format(len(lowers)))
     writer.write('extern const int32_t LOWER_INDEX[];\n')
-    writer.write('extern const int32_t LOWER_CASE[];\n')
+    writer.write('extern const UChar LOWER_CASE[];\n')
     writer.write('const int32_t TITLE_NUM = {};\n'.format(len(titles)))
     writer.write('extern const int32_t TITLE_INDEX[];\n')
-    writer.write('extern const int32_t TITLE_CASE[];\n')
+    writer.write('extern const UChar TITLE_CASE[];\n\n')
 
 with open('src/cases.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
         writer.write(reader.read())
 
     writer.write('#include "unicode_data.h"\n\n')
+    writer.write('namespace unicode {\n\n')
 
     for name, cases in zip(['UPPER', 'LOWER', 'TITLE'],
                            [uppers, lowers, titles]):
@@ -69,4 +70,6 @@ with open('src/cases.cpp', 'w') as writer:
             else:
                 writer.write(', ')
             writer.write('0x' + case[1])
-        writer.write('\n};\n')
+        writer.write('\n};\n\n')
+
+    writer.write('}  // namespace unicode\n')

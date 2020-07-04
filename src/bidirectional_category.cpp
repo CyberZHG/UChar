@@ -19,7 +19,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "unicode_data.h"
 
-using unicode::BidirectionalCategory;
+namespace unicode {
 
 const BidirectionalCategory AL = BidirectionalCategory::AL;
 const BidirectionalCategory AN = BidirectionalCategory::AN;
@@ -45,7 +45,7 @@ const BidirectionalCategory RLO = BidirectionalCategory::RLO;
 const BidirectionalCategory S = BidirectionalCategory::S;
 const BidirectionalCategory WS = BidirectionalCategory::WS;
 
-std::ostream& unicode::operator<<(std::ostream& os, BidirectionalCategory c) {
+std::ostream& operator<<(std::ostream& os, BidirectionalCategory c) {
     switch (c) {
     case AL: os << "AL"; break;
     case AN: os << "AN"; break;
@@ -3457,3 +3457,5 @@ const BidirectionalCategory BIDIRECTIONAL_CATEGORY[] = {
     NSM, NSM, NSM, NSM, NSM, NSM, NSM, NSM, NSM, NSM,
     NSM, NSM, NSM, L, L, L, L
 };
+
+}  // namespace unicode

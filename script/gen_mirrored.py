@@ -31,13 +31,14 @@ with open('UnicodeData.txt', 'r') as reader:
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('const int32_t MIRRORED_NUM = {};\n'.format(len(codes)))
     writer.write('extern const int32_t MIRRORED_INDEX[];\n')
-    writer.write('extern const bool MIRRORED_VALUE[];\n')
+    writer.write('extern const bool MIRRORED_VALUE[];\n\n')
 
 with open('src/mirrored.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
         writer.write(reader.read())
 
     writer.write('#include "unicode_data.h"\n\n')
+    writer.write('namespace unicode {\n\n')
 
     writer.write('\nconst int32_t MIRRORED_INDEX[] = {')
     for i, code in enumerate(codes):
@@ -62,4 +63,6 @@ with open('src/mirrored.cpp', 'w') as writer:
             writer.write('true')
         else:
             writer.write('false')
-    writer.write('\n};\n')
+    writer.write('\n};\n\n')
+
+    writer.write('}  // namespace unicode\n')

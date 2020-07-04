@@ -61,22 +61,22 @@ with open('include/unicode_char.h', 'a') as writer:
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('const int32_t DECOMPOSITION_MAPPING_NUM = {};\n'.format(len(codes)))
     writer.write('extern const int32_t DECOMPOSITION_MAPPING_INDEX[];\n')
-    writer.write('extern const unicode::DecompositionMappingTag DECOMPOSITION_MAPPING_TAG[];\n')
+    writer.write('extern const DecompositionMappingTag DECOMPOSITION_MAPPING_TAG[];\n')
     writer.write('extern const int32_t DECOMPOSITION_MAPPING_OFFSET[];\n')
-    writer.write('extern const int32_t DECOMPOSITION_MAPPING_CHARS[];\n')
+    writer.write('extern const UChar DECOMPOSITION_MAPPING_CHARS[];\n\n')
 
 with open('src/decomposition_mapping.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
         writer.write(reader.read())
 
     writer.write('#include "unicode_data.h"\n\n')
+    writer.write('namespace unicode {\n\n')
 
-    writer.write('using unicode::DecompositionMappingTag;\n\n')
     for tag in unique_tags:
         writer.write('const DecompositionMappingTag {} = DecompositionMappingTag::{};\n'.format(tag, tag))
     writer.write("\n")
 
-    writer.write('std::ostream& unicode::operator<<(std::ostream& os, DecompositionMappingTag tag) {\n')
+    writer.write('std::ostream& operator<<(std::ostream& os, DecompositionMappingTag tag) {\n')
     writer.write('    switch (tag) {\n')
     for tag, mapped in tag_map.items():
         writer.write('    case {}: os << "{}"; break;\n'.format(tag, mapped))
@@ -129,7 +129,9 @@ with open('src/decomposition_mapping.cpp', 'w') as writer:
                 writer.write(', ')
             writer.write('0x' + code)
             i += 1
-    writer.write('\n};\n')
+    writer.write('\n};\n\n')
+
+    writer.write('}  // namespace unicode\n')
 
 with open('tests/test_decomposition_mapping_gen.cpp', 'w') as writer:
     codes = ['0000'] + codes
@@ -146,7 +148,7 @@ with open('tests/test_decomposition_mapping_gen.cpp', 'w') as writer:
     writer.write('class DecompositionMappingGenTest : public UnitTest {};\n\n')
 
     writer.write('__TEST_U(DecompositionMappingGenTest, test_cats) {\n')
-    writer.write('    int32_t buffer[16];\n')
+    writer.write('    unicode::UChar buffer[16];\n')
     appeared = set()
     for code, tag, decomposition in zip(codes, tags, decompositions):
         if tag not in appeared:

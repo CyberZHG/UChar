@@ -38,20 +38,20 @@ with open('include/unicode_char.h', 'a') as writer:
     writer.write('std::ostream& operator<<(std::ostream&, BidirectionalCategory);\n\n')
 
 with open('include/unicode_data.h', 'a') as writer:
-    writer.write('extern const unicode::BidirectionalCategory BIDIRECTIONAL_CATEGORY[];\n')
+    writer.write('extern const BidirectionalCategory BIDIRECTIONAL_CATEGORY[];\n\n')
 
 with open('src/bidirectional_category.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:
         writer.write(reader.read())
 
     writer.write('#include "unicode_data.h"\n\n')
+    writer.write('namespace unicode {\n\n')
 
-    writer.write('using unicode::BidirectionalCategory;\n\n')
     for category in unique_categories:
         writer.write('const BidirectionalCategory {} = BidirectionalCategory::{};\n'.format(category, category))
     writer.write("\n")
 
-    writer.write('std::ostream& unicode::operator<<(std::ostream& os, BidirectionalCategory c) {\n')
+    writer.write('std::ostream& operator<<(std::ostream& os, BidirectionalCategory c) {\n')
     writer.write('    switch (c) {\n')
     for category in unique_categories:
         writer.write('    case {}: os << "{}"; break;\n'.format(category, category))
@@ -68,7 +68,9 @@ with open('src/bidirectional_category.cpp', 'w') as writer:
         else:
             writer.write(', ')
         writer.write(category)
-    writer.write('\n};\n')
+    writer.write('\n};\n\n')
+
+    writer.write('}  // namespace unicode\n')
 
 with open('tests/test_bidirectional_category_gen.cpp', 'w') as writer:
     with open('copyright.txt', 'r') as reader:

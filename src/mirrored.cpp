@@ -19,6 +19,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "unicode_data.h"
 
+namespace unicode {
+
 
 const int32_t MIRRORED_INDEX[] = {
     0x0000, 0x0028, 0x002A, 0x003C, 0x003D, 0x003E, 0x003F, 0x005B,
@@ -77,3 +79,5 @@ const bool MIRRORED_VALUE[] = {
     false, true, false, true, false, true, false, true, false, true,
     false, true, false, true, false, true, false
 };
+
+}  // namespace unicode

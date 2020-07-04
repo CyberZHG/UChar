@@ -19,6 +19,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 #include "unicode_data.h"
 
+namespace unicode {
+
 
 const int32_t CANONICAL_COMBINING_INDEX[] = {
     0x0000, 0x0300, 0x0315, 0x0316, 0x031A, 0x031B, 0x031C, 0x0321,
@@ -159,3 +161,5 @@ const int32_t CANONICAL_COMBINING_CLASS[] = {
     0, 230, 0, 230, 0, 230, 0, 230,
     0, 230, 0, 220, 0, 230, 7, 0
 };
+
+}  // namespace unicode

@@ -21,7 +21,7 @@ SOFTWARE. */
 
 namespace unicode {
 
-std::string toUTF8(int32_t code) {
+std::string toUTF8(UChar code) {
     if (code < 0) {
         throw std::runtime_error("The Unicode value is invalid: " +
                                  std::to_string(code));
@@ -55,7 +55,7 @@ std::string toUTF8(int32_t code) {
     return str;
 }
 
-std::string toUTF8(const std::vector<int32_t> codes) {
+std::string toUTF8(const std::vector<UChar> codes) {
     std::string str;
     for (auto code : codes) {
         str += toUTF8(code);
@@ -63,7 +63,7 @@ std::string toUTF8(const std::vector<int32_t> codes) {
     return str;
 }
 
-int32_t fromUTF8Char(const std::string& str) {
+UChar fromUTF8Char(const std::string& str) {
     if (str.empty()) {
         throw std::runtime_error("The input UTF8 character cannot be empty");
     }
@@ -79,15 +79,15 @@ int32_t fromUTF8Char(const std::string& str) {
                                  "expect " + std::to_string(len) + ", "
                                  "got " + std::to_string(str.length()));
     }
-    int32_t code = str[0] & (31 >> (len - 2));
+    UChar code = str[0] & (31 >> (len - 2));
     for (size_t k = 1; k < len; ++k) {
         code = (code << 6) | (str[k] & 63);
     }
     return code;
 }
 
-std::vector<int32_t> fromUTF8(const std::string& str) {
-    std::vector<int32_t> codes;
+std::vector<UChar> fromUTF8(const std::string& str) {
+    std::vector<UChar> codes;
     size_t index = 0;
     if (str.size() >= 3u
         && str[0] == static_cast<char>(0xef)
@@ -97,14 +97,14 @@ std::vector<int32_t> fromUTF8(const std::string& str) {
     }
     while (index < str.size()) {
         if ((str[index] & 128) == 0) {
-            codes.emplace_back(static_cast<int32_t>(str[index]));
+            codes.emplace_back(static_cast<UChar>(str[index]));
             ++index;
         } else {
             int len = 2;
             for (int j = (1 << 5); (str[index] & j) > 0; j >>= 1) {
                 ++len;
             }
-            int32_t code = str[index] & (31 >> (len - 2));
+            UChar code = str[index] & (31 >> (len - 2));
             for (int k = 1; k < len; ++k) {
                 code = (code << 6) | (str[index + k] & 63);
             }
@@ -115,7 +115,7 @@ std::vector<int32_t> fromUTF8(const std::string& str) {
     return codes;
 }
 
-std::u16string toUTF16(const std::vector<int32_t> codes) {
+std::u16string toUTF16(const std::vector<UChar> codes) {
     std::u16string str;
     for (auto code : codes) {
         if (0x10000 <= code && code <= 0x10ffff) {  // Surrogate pair
@@ -129,16 +129,16 @@ std::u16string toUTF16(const std::vector<int32_t> codes) {
     return str;
 }
 
-std::vector<int32_t> fromUTF16(const std::u16string& str) {
-    std::vector<int32_t> codes;
+std::vector<UChar> fromUTF16(const std::u16string& str) {
+    std::vector<UChar> codes;
     size_t index = 0;
     while (index < str.size()) {
         if ((str[index] & 0xfc00) == 0xd800) {  // Surrogate pair
-            int32_t high = str[index] & 1023, low = str[index + 1] & 1023;
+            UChar high = str[index] & 1023, low = str[index + 1] & 1023;
             codes.emplace_back(((high << 10) | low) + 0x10000);
             index += 2;
         } else {
-            codes.emplace_back(static_cast<int32_t>(str[index]));
+            codes.emplace_back(static_cast<UChar>(str[index]));
             ++index;
         }
     }
