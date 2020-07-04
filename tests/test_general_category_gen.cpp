@@ -56,4 +56,14 @@ __TEST_U(GeneralCategoryGenTest, test_cats) {
     __ASSERT_EQ(unicode::GeneralCategory::Co, unicode::getGeneralCategory(0xE000));
 }
 
+__TEST_U(GeneralCategoryGenTest, test_base_cats) {
+    __ASSERT_EQ(unicode::BaseGeneralCategory::C, unicode::getBaseGeneralCategory(0x0000));
+    __ASSERT_EQ(unicode::BaseGeneralCategory::Z, unicode::getBaseGeneralCategory(0x0020));
+    __ASSERT_EQ(unicode::BaseGeneralCategory::P, unicode::getBaseGeneralCategory(0x0021));
+    __ASSERT_EQ(unicode::BaseGeneralCategory::S, unicode::getBaseGeneralCategory(0x0024));
+    __ASSERT_EQ(unicode::BaseGeneralCategory::N, unicode::getBaseGeneralCategory(0x0030));
+    __ASSERT_EQ(unicode::BaseGeneralCategory::L, unicode::getBaseGeneralCategory(0x0041));
+    __ASSERT_EQ(unicode::BaseGeneralCategory::M, unicode::getBaseGeneralCategory(0x0300));
+}
+
 }  // namespace test

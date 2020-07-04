@@ -36,7 +36,12 @@ enum class GeneralCategory {
     Po, Ps, Sc, Sk, Sm, So, Zl, Zp, Zs
 };
 
+enum class BaseGeneralCategory {
+    C, L, M, N, P, S, Z
+};
+
 std::ostream& operator<<(std::ostream&, GeneralCategory);
+std::ostream& operator<<(std::ostream&, BaseGeneralCategory);
 
 enum class BidirectionalCategory {
     AL, AN, B, BN, CS, EN, ES, ET, FSI, L,
@@ -60,6 +65,8 @@ std::ostream& operator<<(std::ostream&, DecompositionMappingTag);
 
 /** Get the general category of a code point. */
 GeneralCategory getGeneralCategory(UChar code);
+/** Get the base general category of a code point. */
+BaseGeneralCategory getBaseGeneralCategory(UChar code);
 
 /** Get the canonical combining class of a code point. */
 int32_t getCanonicalCombiningClass(UChar code);

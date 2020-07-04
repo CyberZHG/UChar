@@ -1,6 +1,31 @@
 UChar
 =====
 
+## Basic Information
+
+### General Category
+
+Get the type of a character:
+
+```cpp
+#include "unicode_char.h"
+using namespace unicode;
+
+assert(GeneralCategory::Lu, getGeneralCategory(0x370));
+assert(BaseGeneralCategory::P, getBaseGeneralCategory(0x21));
+```
+
+## Canonical Combining Classes
+
+The canonical combining classes are integers as they already have the integer definition:
+
+```cpp
+#include "unicode_char.h"
+using namespace unicode;
+
+assert(getCanonicalCombiningClass(0x302C) == 232);
+```
+
 ## Encoding & Decoding
 
 The code points can be converted to UTF-8 or UTF-16 string, and vice versa.

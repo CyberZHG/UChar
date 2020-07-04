@@ -29,6 +29,7 @@ extern const int32_t CONTINUOUS_NUM;
 extern const UChar CODE_VALUE[];
 
 extern const GeneralCategory GENERAL_CATEGORY[];
+extern const BaseGeneralCategory BASE_GENERAL_CATEGORY[];
 
 const int32_t CANONICAL_COMBINING_NUM = 536;
 extern const int32_t CANONICAL_COMBINING_INDEX[];

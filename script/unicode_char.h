@@ -5,6 +5,8 @@
 
 /** Get the general category of a code point. */
 GeneralCategory getGeneralCategory(UChar code);
+/** Get the base general category of a code point. */
+BaseGeneralCategory getBaseGeneralCategory(UChar code);
 
 /** Get the canonical combining class of a code point. */
 int32_t getCanonicalCombiningClass(UChar code);

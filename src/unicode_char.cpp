@@ -59,6 +59,10 @@ GeneralCategory getGeneralCategory(UChar code) {
     return GENERAL_CATEGORY[getCodeIndex(code)];
 }
 
+BaseGeneralCategory getBaseGeneralCategory(UChar code) {
+    return BASE_GENERAL_CATEGORY[getCodeIndex(code)];
+}
+
 int32_t getCanonicalCombiningClass(UChar code) {
     int32_t index = findLowerBound(CANONICAL_COMBINING_INDEX, CANONICAL_COMBINING_NUM, code);
     if (index == -1) {
