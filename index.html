@@ -66,6 +66,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<p><img src="https://github.com/CyberZHG/UChar/workflows/CI/badge.svg" alt="CI" style="pointer-events: none;" class="inline"/> <a href="https://cyberzhg.github.io/UChar/"><img src="https://github.com/CyberZHG/UChar/workflows/Deploy/badge.svg" alt="Deploy" style="pointer-events: none;" class="inline"/></a></p>
 <h1><a class="anchor" id="autotoc_md0"></a>
 Basic Information</h1>
 <h2><a class="anchor" id="autotoc_md1"></a>
@@ -127,7 +128,26 @@ Upper/Lower/Title Cases</h2>
 <div class="line">assert(<a class="code" href="unicode__char_8h.html#a827a1de593760ef2ed4536b416fdbce9">getUpperCase</a>(<span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span>) == <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;A&#39;</span>));</div>
 <div class="line">assert(<a class="code" href="unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86">getLowerCase</a>(<span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;A&#39;</span>) == <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span>));</div>
 <div class="line">assert(<a class="code" href="unicode__char_8h.html#af31c9ca791f50c8ca3c9f18953a941c6">getTitleCase</a>(<span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;a&#39;</span>) == <span class="keyword">static_cast&lt;</span>UChar<span class="keyword">&gt;</span>(<span class="charliteral">&#39;A&#39;</span>));</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+Decomposition Mapping</h2>
+<p>The character <code>㉐</code> is the partnership sign, and its decomposition is <code>PTE</code>:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="unicode__char_8h.html">unicode_char.h</a>&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span>unicode;</div>
+<div class="line"> </div>
+<div class="line">assert(<a class="code" href="unicode__char_8h.html#aa800b8f8db082e4047320225c1721f85">getDecompositionMappingTag</a>(0x3250)) == DecompositionMappingTag::SQUARE);</div>
+<div class="line"><span class="keyword">auto</span> decomposition = <a class="code" href="unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145">getDecompositionMapping</a>(0x3250);</div>
+<div class="line">assert(decomposition.size() == 3u);</div>
+<div class="line">assert(decomposition[0] == 0x50);</div>
+<div class="line">assert(decomposition[1] == 0x54);</div>
+<div class="line">assert(decomposition[2] == 0x45);</div>
+<div class="line"> </div>
+<div class="line">UChar buffer[16];</div>
+<div class="line"><a class="code" href="unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145">getDecompositionMapping</a>(0x3250, buffer);</div>
+<div class="line">assert(buffer[0] == 0x50);</div>
+<div class="line">assert(buffer[1] == 0x54);</div>
+<div class="line">assert(buffer[2] == 0x45);</div>
+<div class="line">assert(buffer[3] == 0);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Encoding &amp; Decoding</h1>
 <p>The code points can be converted to UTF-8 or UTF-16 string, and vice versa.</p>
 <p>An example to convert a UTF-8 encoded string to the code points:</p>
@@ -153,10 +173,12 @@ Encoding &amp; Decoding</h1>
 <div class="ttc" id="aunicode__char_8h_html_a28b32213b7a2e49dcd2739878ea0731a"><div class="ttname"><a href="unicode__char_8h.html#a28b32213b7a2e49dcd2739878ea0731a">unicode::fromUTF8</a></div><div class="ttdeci">std::vector&lt; UChar &gt; fromUTF8(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> encode.cpp:89</div></div>
 <div class="ttc" id="aunicode__char_8h_html_ac4c76a93d5aa7b056c4084f9c19b0a04"><div class="ttname"><a href="unicode__char_8h.html#ac4c76a93d5aa7b056c4084f9c19b0a04">unicode::getBaseGeneralCategory</a></div><div class="ttdeci">BaseGeneralCategory getBaseGeneralCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:62</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a9ed6fb7ce7aeadc1994bbff9717e0f04"><div class="ttname"><a href="unicode__char_8h.html#a9ed6fb7ce7aeadc1994bbff9717e0f04">unicode::getDigitValue</a></div><div class="ttdeci">int32_t getDigitValue(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:122</div></div>
+<div class="ttc" id="aunicode__char_8h_html_a647a8e614fa24c6e50805850f968b145"><div class="ttname"><a href="unicode__char_8h.html#a647a8e614fa24c6e50805850f968b145">unicode::getDecompositionMapping</a></div><div class="ttdeci">std::vector&lt; UChar &gt; getDecompositionMapping(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:86</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a8dd9a6fe2c5b693e705aeac0d0a3750c"><div class="ttname"><a href="unicode__char_8h.html#a8dd9a6fe2c5b693e705aeac0d0a3750c">unicode::getNumericFraction</a></div><div class="ttdeci">std::pair&lt; int64_t, int64_t &gt; getNumericFraction(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:138</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a26834c8a76773a48368a8f52e0c29270"><div class="ttname"><a href="unicode__char_8h.html#a26834c8a76773a48368a8f52e0c29270">unicode::getBidirectionalCategory</a></div><div class="ttdeci">BidirectionalCategory getBidirectionalCategory(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:74</div></div>
 <div class="ttc" id="aunicode__char_8h_html"><div class="ttname"><a href="unicode__char_8h.html">unicode_char.h</a></div><div class="ttdoc">Unicode information about a character.</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a2a5adca11cda8f424b8c70f547bce434"><div class="ttname"><a href="unicode__char_8h.html#a2a5adca11cda8f424b8c70f547bce434">unicode::getCanonicalCombiningClass</a></div><div class="ttdeci">int32_t getCanonicalCombiningClass(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:66</div></div>
+<div class="ttc" id="aunicode__char_8h_html_aa800b8f8db082e4047320225c1721f85"><div class="ttname"><a href="unicode__char_8h.html#aa800b8f8db082e4047320225c1721f85">unicode::getDecompositionMappingTag</a></div><div class="ttdeci">DecompositionMappingTag getDecompositionMappingTag(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:78</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a74d728b8a2336ff918abdd79a01c4e86"><div class="ttname"><a href="unicode__char_8h.html#a74d728b8a2336ff918abdd79a01c4e86">unicode::getLowerCase</a></div><div class="ttdeci">UChar getLowerCase(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:166</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a0e9c44d60a65ed0f7a6f41762f1bdc5a"><div class="ttname"><a href="unicode__char_8h.html#a0e9c44d60a65ed0f7a6f41762f1bdc5a">unicode::isMirrored</a></div><div class="ttdeci">bool isMirrored(UChar code)</div><div class="ttdef"><b>Definition:</b> unicode_char.cpp:146</div></div>
 <div class="ttc" id="aunicode__char_8h_html_a91c671dc640c8400c054f1e05edc8ee7"><div class="ttname"><a href="unicode__char_8h.html#a91c671dc640c8400c054f1e05edc8ee7">unicode::toUTF8</a></div><div class="ttdeci">std::string toUTF8(const std::vector&lt; UChar &gt; codes)</div><div class="ttdef"><b>Definition:</b> encode.cpp:58</div></div>
