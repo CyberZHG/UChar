@@ -1,6 +1,12 @@
 # UChar
 
+[![C++ Unit Tests](https://github.com/CyberZHG/UChar/actions/workflows/cpp-unit-test.yml/badge.svg)](https://github.com/CyberZHG/UChar/actions/workflows/cpp-unit-test.yml)
+[![Python Lint](https://github.com/CyberZHG/UChar/actions/workflows/python-lint.yml/badge.svg)](https://github.com/CyberZHG/UChar/actions/workflows/python-lint.yml)
+[![Coverage Status](https://coveralls.io/repos/github/CyberZHG/UChar/badge.svg?branch=main)](https://coveralls.io/github/CyberZHG/UChar?branch=main)
+
 ## Basic Information
+
+A C++ library for retrieving basic Unicode information, providing conversions to and from code points.
 
 ### General Category
 
