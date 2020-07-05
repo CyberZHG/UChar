@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <sstream>
+#include <algorithm>
 #include <ranges>
 #include <cctype>
 #include "unicode_char.h"

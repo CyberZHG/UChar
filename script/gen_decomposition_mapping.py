@@ -123,6 +123,7 @@ with open('tests/test_decomposition_mapping_gen.cpp', 'w') as writer:
 
     writer.write("""#include <gtest/gtest.h>
 #include <sstream>
+#include <algorithm>
 #include <ranges>
 #include <cctype>
 #include "unicode_char.h"

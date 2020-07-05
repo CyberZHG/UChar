@@ -1,8 +1,5 @@
 # UChar
 
-![CI](https://github.com/CyberZHG/UChar/workflows/CI/badge.svg)
-[![Deploy](https://github.com/CyberZHG/UChar/workflows/Deploy/badge.svg)](https://cyberzhg.github.io/UChar/)
-
 ## Basic Information
 
 ### General Category
