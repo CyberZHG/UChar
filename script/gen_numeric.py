@@ -10,7 +10,7 @@ with open('UnicodeData.txt', 'r') as reader:
 
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('/** The total number of indices used to store the numeric information. */\n')
-    writer.write('const int NUMERICS_NUM = {};\n'.format(len(codes)))
+    writer.write('constexpr int NUMERICS_NUM = {};\n'.format(len(codes)))
     writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int NUMERICS_INDEX[];\n')
     writer.write('/** The decimal data. */\n')

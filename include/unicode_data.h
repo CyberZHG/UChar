@@ -1,6 +1,11 @@
 #ifndef INCLUDE_UNICODE_DATA_H_
 #define INCLUDE_UNICODE_DATA_H_
 
+/**
+ * @file
+ * @brief Unicode information about a character.
+ */
+
 #include "unicode_char.h"
 
 namespace unicode {
@@ -18,7 +23,7 @@ extern const GeneralCategory GENERAL_CATEGORY[];
 extern const BaseGeneralCategory BASE_GENERAL_CATEGORY[];
 
 /** The total number of indices used to store the canonical combing class. */
-const int CANONICAL_COMBINING_NUM = 592;
+constexpr int CANONICAL_COMBINING_NUM = 592;
 /** The indices of the first character that have a different type. */
 extern const int CANONICAL_COMBINING_INDEX[];
 /** The canonical combining class data. */
@@ -28,7 +33,7 @@ extern const int CANONICAL_COMBINING_CLASS[];
 extern const BidirectionalCategory BIDIRECTIONAL_CATEGORY[];
 
 /** The total number of indices used to store the decomposition mappings. */
-const int DECOMPOSITION_MAPPING_NUM = 5914;
+constexpr int DECOMPOSITION_MAPPING_NUM = 5914;
 /** The indices of the first character that have a different type. */
 extern const int DECOMPOSITION_MAPPING_INDEX[];
 /** The decomposition mapping tags data. */
@@ -39,7 +44,7 @@ extern const int DECOMPOSITION_MAPPING_OFFSET[];
 extern const UChar DECOMPOSITION_MAPPING_CHARS[];
 
 /** The total number of indices used to store the numeric information. */
-const int NUMERICS_NUM = 1940;
+constexpr int NUMERICS_NUM = 1940;
 /** The indices of the first character that have a different type. */
 extern const int NUMERICS_INDEX[];
 /** The decimal data. */
@@ -52,26 +57,26 @@ extern const int64_t NUMERICS_NUMERATOR[];
 extern const int NUMERICS_DENOMINATOR[];
 
 /** The total number of indices used to store the mirrored information. */
-const int MIRRORED_NUM = 229;
+constexpr int MIRRORED_NUM = 229;
 /** The indices of the first character that have a different type. */
 extern const int MIRRORED_INDEX[];
 /** The mirrored information data. */
 extern const bool MIRRORED_VALUE[];
 
 /** The total number of indices used to store the upper cases. */
-const int UPPER_NUM = 1505;
+constexpr int UPPER_NUM = 1505;
 /** The indices of the first character that have a different type. */
 extern const int UPPER_INDEX[];
 /** The upper cases data. */
 extern const UChar UPPER_CASE[];
 /** The total number of indices used to store the lower cases. */
-const int LOWER_NUM = 1488;
+constexpr int LOWER_NUM = 1488;
 /** The indices of the first character that have a different type. */
 extern const int LOWER_INDEX[];
 /** The lower cases data. */
 extern const UChar LOWER_CASE[];
 /** The total number of indices used to store the title cases. */
-const int TITLE_NUM = 1509;
+constexpr int TITLE_NUM = 1509;
 /** The indices of the first character that have a different type. */
 extern const int TITLE_INDEX[];
 /** The title cases data. */

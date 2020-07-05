@@ -62,13 +62,13 @@ UChar getTitleCase(UChar code);
 /** Convert a code point to UTF-8 string. */
 std::string toUTF8(UChar code);
 /** Convert code points to UTF-8 string. */
-std::string toUTF8(const std::vector<UChar> codes);
+std::string toUTF8(const std::vector<UChar>& codes);
 /** Convert a UTF-8 string to a code point. */
 UChar fromUTF8Char(const std::string& str);
 /** Convert a UTF-8 string to code points. */
 std::vector<UChar> fromUTF8(const std::string& str);
 
 /** Convert code points to UTF-16 string. */
-std::u16string toUTF16(const std::vector<UChar> codes);
+std::u16string toUTF16(const std::vector<UChar>& codes);
 /** Convert UTF-16 string to code points. */
 std::vector<UChar> fromUTF16(const std::u16string& str);

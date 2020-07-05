@@ -17,8 +17,8 @@ with open('src/code_value.cpp', 'w') as writer:
     writer.write('#include "unicode_data.h"\n\n')
     writer.write('namespace unicode {\n\n')
 
-    writer.write('const int CODE_NUM = %d;\n' % len(code_values))
-    writer.write('const int CONTINUOUS_NUM = %d;\n' % max_continuous)
+    writer.write('constexpr int CODE_NUM = %d;\n' % len(code_values))
+    writer.write('constexpr int CONTINUOUS_NUM = %d;\n' % max_continuous)
     writer.write('const UChar CODE_VALUE[] = {')
     for i, value in enumerate(code_values):
         if i == 0:

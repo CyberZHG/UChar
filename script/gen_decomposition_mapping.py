@@ -41,7 +41,7 @@ with open('include/unicode_char.h', 'a') as writer:
 
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('/** The total number of indices used to store the decomposition mappings. */\n')
-    writer.write('const int DECOMPOSITION_MAPPING_NUM = {};\n'.format(len(codes)))
+    writer.write('constexpr int DECOMPOSITION_MAPPING_NUM = {};\n'.format(len(codes)))
     writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int DECOMPOSITION_MAPPING_INDEX[];\n')
     writer.write('/** The decomposition mapping tags data. */\n')

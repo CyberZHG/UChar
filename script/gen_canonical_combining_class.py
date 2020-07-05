@@ -10,7 +10,7 @@ with open('UnicodeData.txt', 'r') as reader:
 
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('/** The total number of indices used to store the canonical combing class. */\n')
-    writer.write('const int CANONICAL_COMBINING_NUM = {};\n'.format(len(indices)))
+    writer.write('constexpr int CANONICAL_COMBINING_NUM = {};\n'.format(len(indices)))
     writer.write('/** The indices of the first character that have a different type. */\n')
     writer.write('extern const int CANONICAL_COMBINING_INDEX[];\n')
     writer.write('/** The canonical combining class data. */\n')
