@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-./get_data.sh
-./gen_header_open.py
-./gen_code_value.py
-./gen_general_category.py
-./gen_canonical_combining_class.py
-./gen_bidirectional_category.py
-./gen_decomposition_mapping.py
-./gen_numeric.py
-./gen_mirrored.py
-./gen_cases.py
-./gen_manual.py
-./gen_header_close.py
+# ./get_data.sh
+python gen_header_open.py
+python gen_code_value.py
+python gen_general_category.py
+python gen_canonical_combining_class.py
+python gen_bidirectional_category.py
+python gen_decomposition_mapping.py
+python gen_numeric.py
+python gen_mirrored.py
+python gen_cases.py
+python gen_manual.py
+python gen_header_close.py

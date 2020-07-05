@@ -1,29 +1,5 @@
-/* Copyright 2020 Zhao HG
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. */
 #ifndef INCLUDE_UNICODE_CHAR_H_
 #define INCLUDE_UNICODE_CHAR_H_
-
-/**
- * @file
- * @brief The data file that stores the information.
- */
 
 #include <iostream>
 #include <vector>
@@ -76,7 +52,7 @@ GeneralCategory getGeneralCategory(UChar code);
 BaseGeneralCategory getBaseGeneralCategory(UChar code);
 
 /** Get the canonical combining class of a code point. */
-int32_t getCanonicalCombiningClass(UChar code);
+int getCanonicalCombiningClass(UChar code);
 
 /** Get the bidirectional category of a code point. */
 BidirectionalCategory getBidirectionalCategory(UChar code);
@@ -92,12 +68,12 @@ void getDecompositionMapping(UChar code, UChar buffer[]);
  *
  * @return -1 will be returned if it is not a decimal digit.
  */
-int32_t getDecimalDigitValue(UChar code);
+int getDecimalDigitValue(UChar code);
 /** Get the digit value of a code point.
  *
  * @return -1 will be returned if it is not a digit.
  */
-int32_t getDigitValue(UChar code);
+int getDigitValue(UChar code);
 /** Get the numeric value of a code point.
  *
  * @return nan will be returned if it is not a numeric.
@@ -134,14 +110,14 @@ UChar getTitleCase(UChar code);
 /** Convert a code point to UTF-8 string. */
 std::string toUTF8(UChar code);
 /** Convert code points to UTF-8 string. */
-std::string toUTF8(const std::vector<UChar> codes);
+std::string toUTF8(const std::vector<UChar>& codes);
 /** Convert a UTF-8 string to a code point. */
 UChar fromUTF8Char(const std::string& str);
 /** Convert a UTF-8 string to code points. */
 std::vector<UChar> fromUTF8(const std::string& str);
 
 /** Convert code points to UTF-16 string. */
-std::u16string toUTF16(const std::vector<UChar> codes);
+std::u16string toUTF16(const std::vector<UChar>& codes);
 /** Convert UTF-16 string to code points. */
 std::vector<UChar> fromUTF16(const std::u16string& str);
 

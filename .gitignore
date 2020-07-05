@@ -14,3 +14,10 @@ tests/coverage
 
 # Docs
 docs
+
+# Python
+.venv
+__pycache__
+
+# Temporary
+*.DS_Store
