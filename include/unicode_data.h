@@ -1,11 +1,6 @@
 #ifndef INCLUDE_UNICODE_DATA_H_
 #define INCLUDE_UNICODE_DATA_H_
 
-/**
- * @file
- * @brief Unicode information about a character.
- */
-
 #include "unicode_char.h"
 
 namespace unicode {

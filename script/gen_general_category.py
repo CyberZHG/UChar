@@ -82,9 +82,13 @@ with open('src/general_category.cpp', 'w') as writer:
     writer.write('}  // namespace unicode\n')
 
 with open('tests/test_general_category_gen.cpp', 'w') as writer:
-    writer.write('#include <gtest/gtest.h>\n')
-    writer.write('#include "unicode_char.h"\n\n')
-    writer.write('TEST(GeneralCategoryGenTest, test_cats) {\n')
+    writer.write("""#include <gtest/gtest.h>
+#include <sstream>
+#include "unicode_char.h"
+
+TEST(GeneralCategoryGenTest, test_cats) {
+    std::stringstream ss;
+""")
     appeared = set()
     with open('UnicodeData.txt', 'r') as reader:
         for line in reader:
@@ -95,9 +99,16 @@ with open('tests/test_general_category_gen.cpp', 'w') as writer:
                 writer.write('    EXPECT_EQ(unicode::GeneralCategory::{}, unicode::getGeneralCategory({}));\n'.format(
                     category, '0x' + parts[0]
                 ))
+                writer.write(f"""    ss << unicode::GeneralCategory::{category};
+    EXPECT_EQ("{category}", ss.str());
+    ss.str("");
+    ss.clear();
+""")
     writer.write('}\n\n')
 
-    writer.write('TEST(GeneralCategoryGenTest, test_base_cats) {\n')
+    writer.write("""TEST(GeneralCategoryGenTest, test_base_cats) {
+    std::stringstream ss;
+""")
     appeared = set()
     with open('UnicodeData.txt', 'r') as reader:
         for line in reader:
@@ -107,4 +118,9 @@ with open('tests/test_general_category_gen.cpp', 'w') as writer:
                 appeared.add(category)
                 writer.write('    EXPECT_EQ(unicode::BaseGeneralCategory::{}, '
                              'unicode::getBaseGeneralCategory({}));\n'.format(category, '0x' + parts[0]))
+                writer.write(f"""    ss << unicode::BaseGeneralCategory::{category};
+    EXPECT_EQ("{category}", ss.str());
+    ss.str("");
+    ss.clear();
+""")
     writer.write('}\n')

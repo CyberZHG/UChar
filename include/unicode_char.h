@@ -1,15 +1,9 @@
 #ifndef INCLUDE_UNICODE_CHAR_H_
 #define INCLUDE_UNICODE_CHAR_H_
 
-/**
- * @file
- * @brief The data file that stores the information.
- */
-
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdint>
 #include <utility>
 
 namespace unicode {

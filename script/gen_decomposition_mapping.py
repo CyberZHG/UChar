@@ -121,10 +121,20 @@ with open('tests/test_decomposition_mapping_gen.cpp', 'w') as writer:
     tags = ['NO_MAPPING'] + tags
     decompositions = [['0000']] + decompositions
 
-    writer.write('#include <gtest/gtest.h>\n')
-    writer.write('#include "unicode_char.h"\n\n')
-    writer.write('TEST(DecompositionMappingGenTest, test_cats) {\n')
-    writer.write('    unicode::UChar buffer[16];\n')
+    writer.write("""#include <gtest/gtest.h>
+#include <sstream>
+#include <ranges>
+#include <cctype>
+#include "unicode_char.h"
+
+TEST(DecompositionMappingGenTest, test_cats) {
+    unicode::UChar buffer[16];
+    auto toUpper = [](const std::string& text) {
+        auto output = text;
+        std::ranges::transform(output, output.begin(), [](const auto c){ return std::toupper(c); });
+        return output;
+    };
+""")
     appeared = set()
     for code, tag, decomposition in zip(codes, tags, decompositions):
         if tag not in appeared:
@@ -141,5 +151,15 @@ with open('tests/test_decomposition_mapping_gen.cpp', 'w') as writer:
             for i in range(len(decomposition)):
                 writer.write('        EXPECT_EQ({}, buffer[{}]);\n'.format('0x' + decomposition[i], i))
             writer.write('        EXPECT_EQ(0, buffer[{}]);\n'.format(len(decomposition)))
+            writer.write(f"""        std::stringstream ss;
+        ss << unicode::DecompositionMappingTag::{tag};
+""")
+            if tag == "NO_MAPPING":
+                writer.write("""         EXPECT_EQ(std::string(), ss.str());\n""")
+            else:
+                writer.write(f"""        EXPECT_EQ("{tag}", toUpper(ss.str()));\n""")
+            writer.write("""        ss.str("");
+        ss.clear();
+""")
             writer.write('    }\n')
     writer.write('}\n')

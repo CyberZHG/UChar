@@ -51,10 +51,13 @@ with open('src/bidirectional_category.cpp', 'w') as writer:
     writer.write('}  // namespace unicode\n')
 
 with open('tests/test_bidirectional_category_gen.cpp', 'w') as writer:
-    writer.write('#include <gtest/gtest.h>\n')
-    writer.write('#include "unicode_char.h"\n\n')
+    writer.write("""#include <gtest/gtest.h>
+#include <sstream>
+#include "unicode_char.h"
 
-    writer.write('TEST(BidirectionalCategoryGenTest, test_cats) {\n')
+TEST(BidirectionalCategoryGenTest, test_cats) {
+    std::stringstream ss;
+""")
     appeared = set()
     with open('UnicodeData.txt', 'r') as reader:
         for line in reader:
@@ -62,7 +65,11 @@ with open('tests/test_bidirectional_category_gen.cpp', 'w') as writer:
             category = parts[4]
             if category not in appeared:
                 appeared.add(category)
-                writer.write('    EXPECT_EQ(unicode::BidirectionalCategory::{}, '
-                             'unicode::getBidirectionalCategory({}));\n'.format(
-                                category, '0x' + parts[0]))
+                writer.write(f"    EXPECT_EQ(unicode::BidirectionalCategory::{category}, "
+                             f"unicode::getBidirectionalCategory(0x{parts[0]}));\n")
+                writer.write(f"""    ss << unicode::BidirectionalCategory::{category};
+    EXPECT_EQ("{category}", ss.str());
+    ss.str("");
+    ss.clear();
+""")
     writer.write('}\n')
