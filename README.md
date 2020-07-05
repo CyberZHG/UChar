@@ -16,7 +16,7 @@ assert(getBaseGeneralCategory(0x21) == BaseGeneralCategory::P);
 
 ### Canonical Combining Classes
 
-The canonical combining classes are integers as they already have the integer definition:
+The canonical combining classes are integers, as they are defined as integer values:
 
 ```cpp
 #include "unicode_char.h"
@@ -36,7 +36,7 @@ assert(getBidirectionalCategory(0x0030) == BidirectionalCategory::EN);
 
 ### Decimal/Digit/Numeric Values
 
-If the character has some numeric properties:
+If the character has any numeric properties:
 
 ```cpp
 #include <cmath>
@@ -111,9 +111,9 @@ assert(buffer[3] == 0);
 
 ## Encoding & Decoding
 
-The code points can be converted to UTF-8 or UTF-16 string, and vice versa.
+Code points can be converted to UTF-8 or UTF-16 strings, and vice versa.
 
-An example to convert a UTF-8 encoded string to the code points:
+Here is an example of converting a UTF-8 encoded string to code points:
 
 ```cpp
 #include "unicode_char.h"
@@ -127,7 +127,7 @@ std::cout << std::endl;
 // Outputs should be: "0x4f60 0x597d 0xff0c 0x4e16 0x754c 0xff01 "
 ```
 
-And you can convert it back to the UTF-8 string:
+You can also convert it back to a UTF-8 string:
 
 ```cpp
 auto str = unicode::toUTF8(codes);
@@ -135,4 +135,4 @@ std::cout << str << std::endl;
 // Outputs should be: "你好，世界！"
 ```
 
-It's the same with UTF-16 string, but the related functions uses `std::u16string` as input and output.
+The same applies to UTF-16 strings, but the related functions use `std::u16string` as both input and output.
