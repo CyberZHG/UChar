@@ -36,7 +36,7 @@ jobs:
       - name: Coverage
         run: |
           ls -lh ${{github.workspace}}/build
-          lcov --directory ${{github.workspace}}/build --capture --output-file ${{github.workspace}}/build/coverage.info --ignore-errors mismatch --rc geninfo_unexecuted_blocks=1 --rc geninfo_gcov_all_blocks=0
+          lcov --directory ${{github.workspace}}/build --capture --output-file ${{github.workspace}}/build/coverage.info --ignore-errors mismatch --rc geninfo_unexecuted_blocks=1
           lcov --remove ${{github.workspace}}/build/coverage.info '/usr/*' '*/_deps/*' 'tests/' --output-file ${{github.workspace}}/build/coverage.info
 
       - name: Coveralls
