@@ -4,7 +4,7 @@ GeneralCategory getGeneralCategory(UChar code);
 BaseGeneralCategory getBaseGeneralCategory(UChar code);
 
 /** Get the canonical combining class of a code point. */
-int32_t getCanonicalCombiningClass(UChar code);
+int getCanonicalCombiningClass(UChar code);
 
 /** Get the bidirectional category of a code point. */
 BidirectionalCategory getBidirectionalCategory(UChar code);
@@ -20,12 +20,12 @@ void getDecompositionMapping(UChar code, UChar buffer[]);
  *
  * @return -1 will be returned if it is not a decimal digit.
  */
-int32_t getDecimalDigitValue(UChar code);
+int getDecimalDigitValue(UChar code);
 /** Get the digit value of a code point.
  *
  * @return -1 will be returned if it is not a digit.
  */
-int32_t getDigitValue(UChar code);
+int getDigitValue(UChar code);
 /** Get the numeric value of a code point.
  *
  * @return nan will be returned if it is not a numeric.

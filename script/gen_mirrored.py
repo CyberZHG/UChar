@@ -9,9 +9,9 @@ with open('UnicodeData.txt', 'r') as reader:
 
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('/** The total number of indices used to store the mirrored information. */\n')
-    writer.write('const int32_t MIRRORED_NUM = {};\n'.format(len(codes)))
+    writer.write('const int MIRRORED_NUM = {};\n'.format(len(codes)))
     writer.write('/** The indices of the first character that have a different type. */\n')
-    writer.write('extern const int32_t MIRRORED_INDEX[];\n')
+    writer.write('extern const int MIRRORED_INDEX[];\n')
     writer.write('/** The mirrored information data. */\n')
     writer.write('extern const bool MIRRORED_VALUE[];\n\n')
 
@@ -19,7 +19,7 @@ with open('src/mirrored.cpp', 'w') as writer:
     writer.write('#include "unicode_data.h"\n\n')
     writer.write('namespace unicode {\n\n')
 
-    writer.write('\nconst int32_t MIRRORED_INDEX[] = {')
+    writer.write('\nconst int MIRRORED_INDEX[] = {')
     for i, code in enumerate(codes):
         if i == 0:
             writer.write('\n    ')

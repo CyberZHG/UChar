@@ -122,7 +122,7 @@ std::pair<int64_t, int64_t> getNumericFraction(const UChar code) {
 }
 
 bool isMirrored(const UChar code) {
-    const int32_t index = findLowerBound(MIRRORED_INDEX, MIRRORED_NUM, code);
+    const int index = findLowerBound(MIRRORED_INDEX, MIRRORED_NUM, code);
     if (index == -1) {
         return false;
     }
@@ -145,7 +145,7 @@ UChar getLowerCase(const UChar code) {
     return getCase(LOWER_INDEX, LOWER_CASE, LOWER_NUM, code);
 }
 
-UChar getTitleCase(const int32_t code) {
+UChar getTitleCase(const int code) {
     return getCase(TITLE_INDEX, TITLE_CASE, TITLE_NUM, code);
 }
 

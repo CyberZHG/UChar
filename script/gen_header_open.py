@@ -15,4 +15,4 @@ with open('include/unicode_char.h', 'w') as writer:
     writer.write('#include <cstdint>\n')
     writer.write('#include <utility>\n\n')
     writer.write('namespace unicode {\n\n')
-    writer.write('using UChar = int32_t;\n\n')
+    writer.write('using UChar = int;\n\n')

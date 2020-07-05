@@ -4,12 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdint>
 #include <utility>
 
 namespace unicode {
 
-using UChar = int32_t;
+using UChar = int;
 
 /** The types of general category. */
 enum class GeneralCategory {

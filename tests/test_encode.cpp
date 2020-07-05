@@ -23,7 +23,7 @@ TEST(EncodeTest, test_utf8_string) {
     str += static_cast<char>(0xef);
     str += static_cast<char>(0xbb);
     str += static_cast<char>(0xbf);
-    str += unicode::toUTF8(std::vector<int32_t>{
+    str += unicode::toUTF8(std::vector<int>{
         0xffff - 14,
         0x7fffffff - 15,
         0x7f - 16,
@@ -36,7 +36,7 @@ TEST(EncodeTest, test_utf8_string) {
 }
 
 TEST(EncodeTest, test_utf16) {
-    std::vector<int32_t> codes = {0x10016, 0x6f};
+    std::vector<int> codes = {0x10016, 0x6f};
     auto gen = unicode::fromUTF16(unicode::toUTF16(codes));
     EXPECT_EQ(2u, gen.size());
     EXPECT_EQ(codes[0], gen[0]);

@@ -10,23 +10,23 @@ with open('UnicodeData.txt', 'r') as reader:
 
 with open('include/unicode_data.h', 'a') as writer:
     writer.write('/** The total number of indices used to store the numeric information. */\n')
-    writer.write('const int32_t NUMERICS_NUM = {};\n'.format(len(codes)))
+    writer.write('const int NUMERICS_NUM = {};\n'.format(len(codes)))
     writer.write('/** The indices of the first character that have a different type. */\n')
-    writer.write('extern const int32_t NUMERICS_INDEX[];\n')
+    writer.write('extern const int NUMERICS_INDEX[];\n')
     writer.write('/** The decimal data. */\n')
-    writer.write('extern const int32_t NUMERICS_DECIMAL[];\n')
+    writer.write('extern const int NUMERICS_DECIMAL[];\n')
     writer.write('/** The digit data. */\n')
-    writer.write('extern const int32_t NUMERICS_DIGIT[];\n')
+    writer.write('extern const int NUMERICS_DIGIT[];\n')
     writer.write('/** The numerator data. */\n')
     writer.write('extern const int64_t NUMERICS_NUMERATOR[];\n')
     writer.write('/** The denominator data. */\n')
-    writer.write('extern const int32_t NUMERICS_DENOMINATOR[];\n\n')
+    writer.write('extern const int NUMERICS_DENOMINATOR[];\n\n')
 
 with open('src/numeric.cpp', 'w') as writer:
     writer.write('#include "unicode_data.h"\n\n')
     writer.write('namespace unicode {\n\n')
 
-    writer.write('\nconst int32_t NUMERICS_INDEX[] = {')
+    writer.write('\nconst int NUMERICS_INDEX[] = {')
     for i, code in enumerate(codes):
         if i == 0:
             writer.write('\n    ')
@@ -37,7 +37,7 @@ with open('src/numeric.cpp', 'w') as writer:
         writer.write('0x' + code)
     writer.write('\n};\n')
 
-    writer.write('\nconst int32_t NUMERICS_DECIMAL[] = {')
+    writer.write('\nconst int NUMERICS_DECIMAL[] = {')
     for i, decimal in enumerate(decimals):
         if i == 0:
             writer.write('\n    ')
@@ -51,7 +51,7 @@ with open('src/numeric.cpp', 'w') as writer:
             writer.write('-1')
     writer.write('\n};\n')
 
-    writer.write('\nconst int32_t NUMERICS_DIGIT[] = {')
+    writer.write('\nconst int NUMERICS_DIGIT[] = {')
     for i, digit in enumerate(digits):
         if i == 0:
             writer.write('\n    ')
@@ -79,7 +79,7 @@ with open('src/numeric.cpp', 'w') as writer:
             writer.write('-1LL')
     writer.write('\n};\n')
 
-    writer.write('\nconst int32_t NUMERICS_DENOMINATOR[] = {')
+    writer.write('\nconst int NUMERICS_DENOMINATOR[] = {')
     for i, numeric in enumerate(numerics):
         if i == 0:
             writer.write('\n    ')
