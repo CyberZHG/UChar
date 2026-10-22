@@ -36,7 +36,7 @@ enum class BidirectionalCategory {
 /** Outputs the bidirectional category with its name. */
 std::ostream& operator<<(std::ostream&, BidirectionalCategory);
 
-/** The tags of decomposition mappingy. */
+/** The tags of decomposition mappings. */
 enum class DecompositionMappingTag {
     NO_MAPPING, CANONICAL, CIRCLE, COMPAT, FINAL, FONT, FRACTION, INITIAL, ISOLATED, MEDIAL,
     NARROW, NOBREAK, SMALL, SQUARE, SUB, SUPER, VERTICAL, WIDE

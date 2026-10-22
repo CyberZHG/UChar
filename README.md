@@ -87,9 +87,9 @@ assert(isMirrored(0x3C));
 #include "unicode_char.h"
 using namespace unicode;
 
-assert(getUpperCase(static_cast<UChar>('a') == static_cast<UChar>('A'));
-assert(getLowerCase(static_cast<UChar>('A') == static_cast<UChar>('a'));
-assert(getTitleCase(static_cast<UChar>('a') == static_cast<UChar>('A'));
+assert(getUpperCase(static_cast<UChar>('a')) == static_cast<UChar>('A'));
+assert(getLowerCase(static_cast<UChar>('A')) == static_cast<UChar>('a'));
+assert(getTitleCase(static_cast<UChar>('a')) == static_cast<UChar>('A'));
 ```
 
 ### Decomposition Mapping
